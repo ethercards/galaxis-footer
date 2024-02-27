@@ -1,2 +1,21 @@
-node_modules
-dist
+# Node.js
+node_modules/
+
+# TypeScript
+*.tsbuildinfo
+
+# Visual Studio Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# npm
+*.log
+*.lock
+
+# Yarn
+yarn-error.log
+yarn.lock
+.pnp.*
+.pnp.js

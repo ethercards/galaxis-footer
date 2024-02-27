@@ -3,11 +3,7 @@ import './App.css';
 import GalaxisFooter from './GalaxisFooter';
 
 function App() {
-  return (
-    <div className="App">
-      <GalaxisFooter />
-    </div>
-  );
+  return (<GalaxisFooter />);
 }
 
 export default App;

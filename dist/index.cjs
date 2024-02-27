@@ -1,2 +1,0 @@
-var e=require("react/jsx-runtime"),r=require("react"),t=require("react-dom/client");function n(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}var o=/*#__PURE__*/n(r);const c=()=>e.jsx("div",{children:"Hello from GalaxisFooter!"});/*#__PURE__*/n(t).default.createRoot(document.getElementById("root")).render(e.jsx(o.default.StrictMode,{children:e.jsx(function(){return e.jsx("div",{className:"App",children:e.jsx(c,{})})},{})}));
-//# sourceMappingURL=index.cjs.map

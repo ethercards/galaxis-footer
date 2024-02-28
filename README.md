@@ -1,6 +1,7 @@
 ## Getting start
 
 ### Install packages
+
 ```bash
 yarn install
 ```
@@ -9,9 +10,10 @@ yarn install
 
 Create a `public` folder into the root folder.
 
-Create an index.html
+Create an `index.html` into the `public` folder.
+
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -25,18 +27,16 @@ Create an index.html
 </html>
 ```
 
-
 Create an `index.tsx`
 
 ```typescript
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <App />
+    // You can import the developing component.
   </React.StrictMode>,
 );
 ```
@@ -47,6 +47,10 @@ Rename the `src/index.ts` to `src/ignore-index.ts`.
 yarn run start
 ```
 
+#### Component creation
+
 ### Git push
 
-Rename the `ignore-index.ts` to `index.ts` and remove the `index.tsx`
+Rename the `ignore-index.ts` to `index.ts`.
+
+Create a commit then push the commit.

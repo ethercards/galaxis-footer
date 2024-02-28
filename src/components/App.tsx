@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Box, Button, Grid } from '@mui/material';
 
 type Props = {
   value?: number;
@@ -15,11 +16,21 @@ const MyCounter = ({ value = 0 }: Props) => {
   };
 
   return (
-    <div>
+    <Box>
       <h1>Counter: {counter}</h1>
-      <button onClick={onMinus}>-</button>
-      <button onClick={onPlus}>+</button>
-    </div>
+      <Grid container spacing={2}>
+        <Grid item>
+          <Button variant="contained" onClick={onMinus}>
+            -
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" onClick={onPlus}>
+            +
+          </Button>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

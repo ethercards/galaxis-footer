@@ -4,3 +4,4 @@ dist
 public
 src/index.tsx
 src/ignore-index.ts
+src/DeveloperComponent.tsx

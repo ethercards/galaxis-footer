@@ -1,10 +1,14 @@
 {
-  "name": "test-footer",
+  "name": "galaxis-footer",
   "version": "1.0.2",
   "description": "",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethercards/galaxis-footer.git"
+  },
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
     "build:esm": "tsc",
@@ -15,9 +19,14 @@
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "test": "jest --config jestconfig.json"
   },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Kovendi Levente",
+  "license": "MIT",
   "devDependencies": {
     "@testing-library/react": "^14.2.1",
     "@types/jest": "^29.5.12",

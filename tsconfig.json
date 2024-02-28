@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext",                                
+    "esModuleInterop": true,                                                     
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "strict": true,                                    
+    "skipLibCheck": true,
+    "rootDir": ".",
     "jsx": "react",
     "declaration": true,
-    "outDir": "./dist"
-  },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts", "node_modules/**/*"],
-  "exclude": ["node_modules"]
+    "declarationDir": "types",
+    "sourceMap": true,
+    "outDir": "dist",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true
+  }
 }

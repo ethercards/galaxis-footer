@@ -2,3 +2,5 @@ node_modules
 .idea
 dist
 public
+src/index.tsx
+src/ignore-index.ts

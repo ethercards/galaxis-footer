@@ -3,8 +3,9 @@ import { Pages } from '../pages';
 import useCmsService from '../../services/cms.service';
 import { Popular } from '../popular';
 import { Copyright } from '../copyright';
-import { PageModel } from '../../models/page.model';
-import { PopularModel } from '../../models/popular.model';
+import StyledWrapper from './GalaxisFooter.stye';
+import { Grid } from '@mui/material';
+import { CmsModel } from '../../models/cms.model';
 
 type GalaxisFooterProps = {
   url: string;
@@ -12,16 +13,20 @@ type GalaxisFooterProps = {
 
 const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
   const { getCmsInfos } = useCmsService();
-  const [pages, setPages] = useState<PageModel[] | undefined>();
-  const [popular, setPopular] = useState<PopularModel[] | undefined>();
+  const [cmsFooterInfos, setCmsFooterInfos] = useState<CmsModel | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      const cmsInfos = await getCmsInfos(url);
+      if (cmsInfos) setCmsFooterInfos(cmsInfos);
+    })();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const infos = await getCmsInfos(url);
-        console.log('infos', infos);
-        setPages(infos.pages);
-        setPopular(infos.popular);
+        const cmsInfos = await getCmsInfos(url);
+        if (cmsInfos) setCmsFooterInfos(cmsInfos);
       } catch (error) {
         console.error('Error fetching CMS infos:', error);
       }
@@ -30,12 +35,21 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
   }, [getCmsInfos, url]);
 
   return (
-    <div>
-      This is the footer component.
-      {pages && <Pages pages={pages} />}
-      {popular && <Popular popular={popular} />}
-      <Copyright />
-    </div>
+    <StyledWrapper container>
+      {cmsFooterInfos && (
+        <>
+          <Grid item>
+            <Pages pages={cmsFooterInfos.pages} />
+          </Grid>
+          <Grid item>
+            <Popular popular={cmsFooterInfos.popular} />
+          </Grid>
+          <Grid item>
+            <Copyright />
+          </Grid>
+        </>
+      )}
+    </StyledWrapper>
   );
 };
 

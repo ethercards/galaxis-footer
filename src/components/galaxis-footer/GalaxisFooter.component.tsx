@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Pages } from '../pages';
 import useCmsService from '../../services/cms.service';
-import { PageProps } from '../pages/Pages.component';
 import { Popular } from '../popular';
 import { Copyright } from '../copyright';
+import { PageModel } from '../../models/page.model';
+import { PopularModel } from '../../models/popular.model';
 
 type GalaxisFooterProps = {
   url: string;
@@ -11,8 +12,8 @@ type GalaxisFooterProps = {
 
 const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
   const { getCmsInfos } = useCmsService();
-  const [pages, setPages] = useState<PageProps[] | undefined>();
-  const [popular, setPopular] = useState<PageProps[] | undefined>();
+  const [pages, setPages] = useState<PageModel[] | undefined>();
+  const [popular, setPopular] = useState<PopularModel[] | undefined>();
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,12 +1,7 @@
 import React, { FC } from 'react';
+import { PageModel } from '../../models/page.model';
 
-export type PageProps = {
-  label: string;
-  url: string;
-  openInNewTab: boolean;
-};
-
-export type PagesProps = { pages: PageProps[] };
+export type PagesProps = { pages: PageModel[] };
 
 const Pages: FC<PagesProps> = ({ pages }) => {
   console.log('pages', pages);

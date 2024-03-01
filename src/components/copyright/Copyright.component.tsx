@@ -7,7 +7,8 @@ const Copyright: FC = () => {
 
   return (
     <Grid container alignItems="center" justifyContent="center" gap={2}>
-      {/* <Img src={logo.src} width={73} alt="logo" /> */}
+      {/* <img src={logo} alt="Galaxis Logo" /> */}
+
       <Typography fontSize={12}>
         {/* <Typography fontSize={12} sx={{ color: '#ffffff' }}> */}
         All Rights Reserved 2021-{currentYear}

@@ -1,1 +1,1 @@
-export { default as Popular } from './Popular.component';
+export { default as Popular } from "./popular.component";

@@ -7,7 +7,6 @@ import { CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { ContactUs } from "./contact-us";
 import { getActiveTheme } from "../utils/theme.util";
 import { Pages } from "./pages";
-import { Popular } from "./popular";
 import { Copyright } from "./copyright";
 
 type GalaxisFooterProps = {
@@ -43,10 +42,8 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
                 address={cmsFooterInfos.address}
               />
             </Grid>
-            <Grid item xxs={12} lg={3} className="galaxis-footer--item">
-              <Popular popular={cmsFooterInfos.popular} />
-            </Grid>
-            <Grid item xxs={12} lg={3} className="galaxis-footer--item">
+            <Grid item xxs={12} lg={3} className="galaxis-footer--item"></Grid>
+            <Grid item xxs={12} lg={12} className="galaxis-footer--item">
               <Copyright />
             </Grid>
           </>

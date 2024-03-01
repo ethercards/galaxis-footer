@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Typography } from "@mui/material";
-import StyledWrapper from "./Copyright.style";
+import StyledWrapper from "./copyright.style";
 import logo from "../../assets/images/galaxis-logo-white.png";
 
 const Copyright: FC = () => {

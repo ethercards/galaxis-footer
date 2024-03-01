@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { PageModel } from "../../models/page.model";
 import { Box, Typography } from "@mui/material";
 import CustomTitle from "../title/title.component";
-import StyledWrapper from "./Pages.style";
+import StyledWrapper from "./pages.style";
 
 export type PagesProps = { pages: PageModel[] };
 
@@ -14,13 +14,7 @@ const Pages: FC<PagesProps> = ({ pages }) => {
       <Box className="pages--box" data-testid="footer-pages-box">
         {pages.map((page, index) => (
           <Typography className="pages--typography" key={index} variant="main">
-            <a
-            // onClick={() =>
-            //   page.url && page.url !== '#' ? to(page.url) : openComingSoon()
-            // }
-            >
-              {page.label}
-            </a>
+            <a>{page.label}</a>
           </Typography>
         ))}
       </Box>

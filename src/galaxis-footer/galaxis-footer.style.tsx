@@ -46,6 +46,12 @@ const StyledWrapper = styled(Grid)(({ theme }) => ({
       marginBottom: "20px",
     },
   },
+  ".galaxis-footer--item:nth-of-type(5)": {
+    maxWidth: "100%",
+    minWidth: "100%",
+    paddingTop: "104px",
+    paddingBottom: "64px",
+  },
 }));
 
 export default StyledWrapper;

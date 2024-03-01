@@ -25,9 +25,11 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
   return (
     <StyledWrapper container>
       {cmsFooterInfos && (
-        <Grid item>
-          <AboutUs aboutUs={cmsFooterInfos.aboutUs}></AboutUs>
-        </Grid>
+        <>
+          <Grid item xxs={12} xs={12} sm={12} md={12} lg={3}>
+            <AboutUs aboutUs={cmsFooterInfos.aboutUs}></AboutUs>
+          </Grid>
+        </>
       )}
     </StyledWrapper>
   );

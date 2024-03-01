@@ -3,7 +3,7 @@ import StyledWrapper from "./constact-us.style";
 import SocialMediaIcon from "../../models/social-media-icon.model";
 import { Box, Link, Typography } from "@mui/material";
 import AddressModel from "../../models/address.model";
-import CustomTitle from "../title/title-1.component";
+import CustomTitle from "../title/title.component";
 
 type Props = {
   socialMediaIcons: SocialMediaIcon[];

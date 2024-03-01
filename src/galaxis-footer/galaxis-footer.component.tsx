@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import AboutUs from "./about/about-us.component";
 import useCmsService from "../services/cms.service";
 import { CmsModel } from "../models/cms.model";
-import StyledWrapper from "./GalaxisFooter.style";
+import StyledWrapper from "./galaxis-footer.style";
 import { CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { ContactUs } from "./contact-us";
 import { getActiveTheme } from "../utils/theme.util";

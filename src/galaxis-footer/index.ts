@@ -1,1 +1,1 @@
-export { default as GalaxisFooter } from "./GalaxisFooter.component";
+export { default as GalaxisFooter } from "./galaxis-footer.component";

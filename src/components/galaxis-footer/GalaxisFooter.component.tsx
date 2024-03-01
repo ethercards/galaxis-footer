@@ -3,6 +3,7 @@ import { Pages } from '../pages';
 import useCmsService from '../../services/cms.service';
 import { PageProps } from '../pages/Pages.component';
 import { Popular } from '../popular';
+import { Copyright } from '../copyright';
 
 type GalaxisFooterProps = {
   url: string;
@@ -32,6 +33,7 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
       This is the footer component.
       {pages && <Pages pages={pages} />}
       {popular && <Popular popular={popular} />}
+      <Copyright />
     </div>
   );
 };

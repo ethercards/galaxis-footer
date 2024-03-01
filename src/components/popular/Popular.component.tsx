@@ -10,7 +10,17 @@ export type PopularsProps = { popular?: PopularProps[] };
 
 const Popular: FC<PopularsProps> = ({ popular }) => {
   console.log(popular);
-  return <div>Popular</div>;
+  return (
+    <div>
+      Popular
+      {popular &&
+        popular.map((item, index) => (
+          <div key={index}>
+            <p>{item.label}</p>
+          </div>
+        ))}
+    </div>
+  );
 };
 
 export default Popular;

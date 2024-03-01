@@ -21,7 +21,7 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
       if (cmsInfos) setCmsFooterInfos(cmsInfos);
     })();
   }, []);
-  console.log(cmsFooterInfos);
+
   return (
     <ThemeProvider theme={getActiveTheme("dark")}>
       <CssBaseline />

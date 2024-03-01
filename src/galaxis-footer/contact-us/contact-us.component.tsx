@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import StyledWrapper from "./constact-us.style";
-import SocialMediaIcon from "../../../models/social-media-icon.model";
+import SocialMediaIcon from "../../models/social-media-icon.model";
 import CustomTitle from "../title/Title.component";
 import { Box, Link, Typography } from "@mui/material";
-import AddressModel from "../../../models/address.model";
+import AddressModel from "../../models/address.model";
 
 type Props = {
   socialMediaIcons: SocialMediaIcon[];

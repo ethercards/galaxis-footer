@@ -1,11 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import AboutUs from "./about/about-us.component";
-import useCmsService from "../../services/cms.service";
-import { CmsModel } from "../../models/cms.model";
+import useCmsService from "../services/cms.service";
+import { CmsModel } from "../models/cms.model";
 import StyledWrapper from "./GalaxisFooter.style";
-import { Grid } from "@mui/material";
-import { CustomThemeProvider } from "../../contexts/theme.context";
+import { CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { ContactUs } from "./contact-us";
+import { getActiveTheme } from "../utils/theme.util";
 
 type GalaxisFooterProps = {
   url: string;
@@ -23,7 +23,8 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
   }, []);
   console.log(cmsFooterInfos);
   return (
-    <CustomThemeProvider>
+    <ThemeProvider theme={getActiveTheme("dark")}>
+      <CssBaseline />
       <StyledWrapper container>
         {cmsFooterInfos && (
           <>
@@ -39,7 +40,7 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
           </>
         )}
       </StyledWrapper>
-    </CustomThemeProvider>
+    </ThemeProvider>
   );
 };
 

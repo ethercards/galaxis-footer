@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { GalaxisLogoIcon } from "../../../icons/icons.component";
+import { GalaxisLogoIcon } from "../../icons/icons.component";
 import { Box, Typography } from "@mui/material";
 import StyledWrapper from "./about-us.style";
 

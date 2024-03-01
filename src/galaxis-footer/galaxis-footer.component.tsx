@@ -7,17 +7,19 @@ import { CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { ContactUs } from "./contact-us";
 import { getActiveTheme } from "../utils/theme.util";
 
-type GalaxisFooterProps = {
-  url: string;
+type Configuration = {
+  cmsUrl: string;
+  galaxisUrl?: string;
+  subjectForContactUs?: string;
 };
 
-const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
+const GalaxisFooter: FC<Configuration> = (configuration) => {
   const { getCmsInfos } = useCmsService();
   const [cmsFooterInfos, setCmsFooterInfos] = useState<CmsModel | null>(null);
 
   useEffect(() => {
     (async () => {
-      const cmsInfos = await getCmsInfos(url);
+      const cmsInfos = await getCmsInfos(configuration.cmsUrl);
       if (cmsInfos) setCmsFooterInfos(cmsInfos);
     })();
   }, []);

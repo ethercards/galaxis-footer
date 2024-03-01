@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
+import StyledWrapper from "./Popular.style";
 
 export type PopularProps = {
   label: string;
@@ -6,12 +7,12 @@ export type PopularProps = {
   openInNewTab: boolean;
 };
 
-export type PopularsProps = { popular?: PopularProps[] };
+export type PopularsProps = { popular: PopularProps[] };
 
 const Popular: FC<PopularsProps> = ({ popular }) => {
   console.log(popular);
   return (
-    <div>
+    <StyledWrapper>
       Popular
       {popular &&
         popular.map((item, index) => (
@@ -19,7 +20,7 @@ const Popular: FC<PopularsProps> = ({ popular }) => {
             <p>{item.label}</p>
           </div>
         ))}
-    </div>
+    </StyledWrapper>
   );
 };
 

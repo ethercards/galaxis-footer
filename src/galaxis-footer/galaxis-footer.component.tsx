@@ -6,6 +6,9 @@ import StyledWrapper from "./galaxis-footer.style";
 import { CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { ContactUs } from "./contact-us";
 import { getActiveTheme } from "../utils/theme.util";
+import { Pages } from "./pages";
+import { Popular } from "./popular";
+import { Copyright } from "./copyright";
 
 type GalaxisFooterProps = {
   url: string;
@@ -31,11 +34,20 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
             <Grid item xxs={12} lg={3} className="galaxis-footer--item">
               <AboutUs text={cmsFooterInfos.aboutUs} />
             </Grid>
+            <Grid item xxs={12} lg={3} className="galaxis-footer--item">
+              <Pages pages={cmsFooterInfos.pages} />
+            </Grid>
             <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--item">
               <ContactUs
                 socialMediaIcons={cmsFooterInfos.socialMediaIcons}
                 address={cmsFooterInfos.address}
               />
+            </Grid>
+            <Grid item xxs={12} lg={3} className="galaxis-footer--item">
+              <Popular popular={cmsFooterInfos.popular} />
+            </Grid>
+            <Grid item xxs={12} lg={3} className="galaxis-footer--item">
+              <Copyright />
             </Grid>
           </>
         )}

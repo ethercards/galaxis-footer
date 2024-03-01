@@ -1,14 +1,8 @@
-import React from 'react';
-import { SVGProps } from 'react';
+import React from "react";
+import { SVGProps } from "react";
 
 const GalaxisLogoIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="200"
-    height="32"
-    viewBox="0 0 200 32"
-    {...props}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" width="200" height="32" viewBox="0 0 200 32" {...props}>
     <g id="galaxis-logo_light" transform="translate(0 0)">
       <path
         id="logo"

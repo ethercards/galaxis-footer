@@ -1,1 +1,1 @@
-export { default as GalaxisButton } from './GalaxisButton.component';
+export { default as GalaxisButton } from "./galaxis-button.component";

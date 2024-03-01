@@ -1,11 +1,8 @@
 const api = {
-  get: async <T>(url: string) => await handler<T>(url, 'GET'),
+  get: async <T>(url: string) => await handler<T>(url, "GET"),
 };
 
-const handler = async <T>(
-  url: string,
-  method: 'GET',
-): Promise<{ response: Response; data: T }> => {
+const handler = async <T>(url: string, method: "GET"): Promise<{ response: Response; data: T }> => {
   const options: RequestInit = {
     method,
   };

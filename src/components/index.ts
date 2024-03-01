@@ -1,1 +1,1 @@
-export { GalaxisButton } from './galaxis-button';
+export { GalaxisButton } from "./galaxis-button";

@@ -1,5 +1,5 @@
-import { Button, ButtonProps } from '@mui/material';
-import React, { FC, ReactNode } from 'react';
+import { Button, ButtonProps } from "@mui/material";
+import React, { FC, ReactNode } from "react";
 
 type Props = {
   props?: ButtonProps;

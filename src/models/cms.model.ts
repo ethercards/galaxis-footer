@@ -1,3 +1,6 @@
+import AddressModel from "./address.model";
+import SocialMediaIcon from "./social-media-icon.model";
+
 export interface CmsModel {
   aboutUs: string;
   pages: {
@@ -5,14 +8,8 @@ export interface CmsModel {
     url: string;
     openInNewTab: boolean;
   }[];
-  socialMediaIcons: {
-    iconPath: string;
-    url: string;
-  }[];
-  address: {
-    mailingAddress: string;
-    emailAddress: string;
-  };
+  socialMediaIcons: SocialMediaIcon[];
+  address: AddressModel;
   popular: {
     label: string;
     url: string;

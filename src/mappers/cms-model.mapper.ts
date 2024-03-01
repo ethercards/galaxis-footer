@@ -1,5 +1,5 @@
-import { CmsDTO } from '../dtos/cms.dto';
-import { CmsModel } from '../models/cms.model';
+import { CmsDTO } from "../dtos/cms.dto";
+import { CmsModel } from "../models/cms.model";
 
 export const toModel = (dto: CmsDTO): CmsModel => ({
   aboutUs: dto.about_us,

@@ -1,17 +1,15 @@
 import React, { FC } from "react";
-// import logo from '@/src/icons/galaxis-logo-white.png';
 import { Typography } from "@mui/material";
 import StyledWrapper from "./Copyright.style";
+import logo from "../../assets/images/galaxis-logo-white.png";
 
 const Copyright: FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <StyledWrapper container alignItems="center" justifyContent="center" gap={2}>
-      {/* <img src={logo} alt="Galaxis Logo" /> */}
-
-      <Typography fontSize={12}>
-        {/* <Typography fontSize={12} sx={{ color: '#ffffff' }}> */}
+    <StyledWrapper container>
+      <img src={logo} alt="Galaxis Logo" className="copyright--img" />
+      <Typography className="copyright--typography" variant="main">
         All Rights Reserved 2021-{currentYear}
       </Typography>
     </StyledWrapper>

@@ -11,17 +11,9 @@ const Pages: FC<PagesProps> = ({ pages }) => {
   return (
     <StyledWrapper item xxs={6} xs={6} sm={4} md={4} lg={3}>
       <CustomTitle className="title" title="Pages" />
-      <Box className="box" display="flex" flexDirection="column" data-testid="footer-pages-box">
-        Pages
+      <Box className="pages--box" data-testid="footer-pages-box">
         {pages.map((page, index) => (
-          <Typography
-            key={index}
-            sx={{
-              cursor: "pointer",
-              opacity: 0.8,
-            }}
-            variant="main"
-          >
+          <Typography className="pages--typography" key={index} variant="main">
             <a
             // onClick={() =>
             //   page.url && page.url !== '#' ? to(page.url) : openComingSoon()

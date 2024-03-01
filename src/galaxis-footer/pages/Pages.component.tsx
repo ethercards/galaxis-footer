@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { PageModel } from "../../models/page.model";
 import { Box, Typography } from "@mui/material";
-import CustomTitle from "../title/Title.component";
+import CustomTitle from "../title/title.component";
 import StyledWrapper from "./Pages.style";
 
 export type PagesProps = { pages: PageModel[] };

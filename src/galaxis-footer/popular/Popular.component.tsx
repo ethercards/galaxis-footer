@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import StyledWrapper from "./Popular.style";
-import CustomTitle from "../title/Title.component";
+import CustomTitle from "../title/title.component";
 import { Box, Button, Typography } from "@mui/material";
 
 export type PopularProps = {

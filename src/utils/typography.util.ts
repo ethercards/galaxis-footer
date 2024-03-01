@@ -1,4 +1,8 @@
-import { TypographyStyle, TypographyStyleOptions } from "@mui/material/styles/createTypography";
+import {
+  TypographyOptions,
+  TypographyStyle,
+  TypographyStyleOptions,
+} from "@mui/material/styles/createTypography";
 
 interface CustomTypography {
   [index: string]: TypographyStyleOptions | TypographyStyle | string | number;
@@ -10,8 +14,6 @@ declare module "@mui/material/styles/createTypography" {
 
 declare module "@mui/material/styles" {
   interface TypographyVariants {
-    intro: React.CSSProperties;
-    introInline: React.CSSProperties;
     default: React.CSSProperties;
     main: React.CSSProperties;
     mainMedium: React.CSSProperties;
@@ -20,8 +22,6 @@ declare module "@mui/material/styles" {
   }
 
   interface TypographyVariantsOptions {
-    intro?: React.CSSProperties;
-    introInline?: React.CSSProperties;
     default?: React.CSSProperties;
     main?: React.CSSProperties;
     mainMedium?: React.CSSProperties;
@@ -32,8 +32,6 @@ declare module "@mui/material/styles" {
 
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
-    intro: true;
-    introInline: true;
     default: true;
     main: true;
     mainMedium: true;
@@ -42,7 +40,7 @@ declare module "@mui/material/Typography" {
   }
 }
 
-export const customVariant = {
+export const customVariant: TypographyOptions = {
   h1: {
     fontFamily: "PoppinsSemiBold",
     fontSize: "100px",
@@ -89,14 +87,6 @@ export const customVariant = {
   buttonText: {
     fontFamily: "Poppins",
     fontSize: "14px",
-  },
-  intro: {
-    fontFamily: "Intro",
-    fontSize: "90px",
-  },
-  introInline: {
-    fontFamily: "IntroInline",
-    fontSize: "90px",
   },
   default: {
     fontFamily: "BauRegular",

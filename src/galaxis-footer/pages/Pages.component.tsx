@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 import CustomTitle from "../title/title.component";
 import StyledWrapper from "./pages.style";
 
-export type PagesProps = { pages: PageModel[] };
+type PagesProps = { pages: PageModel[] };
 
 const Pages: FC<PagesProps> = ({ pages }) => {
   console.log("pages", pages);

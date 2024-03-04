@@ -1,8 +1,9 @@
 import { Grid, styled } from "@mui/material";
 
 const StyledWrapper = styled(Grid)(() => ({
+  minWidth: "100%",
   ".popular--box": {
-    width: "max-content",
+    maxWidth: "100%",
     marginTop: "32px",
     display: "flex",
     flexDirection: "row",

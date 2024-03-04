@@ -2,14 +2,9 @@ import React, { FC } from "react";
 import StyledWrapper from "./popular.style";
 import CustomTitle from "../title/title.component";
 import { Box, Button, Typography } from "@mui/material";
+import { PopularModel } from "../../models/popular.model";
 
-export type PopularProps = {
-  label: string;
-  url: string;
-  openInNewTab: boolean;
-};
-
-export type PopularsProps = { popular: PopularProps[] };
+type PopularsProps = { popular: PopularModel[] };
 
 const Popular: FC<PopularsProps> = ({ popular }) => {
   console.log(popular);
@@ -19,13 +14,7 @@ const Popular: FC<PopularsProps> = ({ popular }) => {
       <Box className="popular--box" data-testid="footer-popular-box">
         {popular &&
           popular.map((item, index) => (
-            <Button
-              className="popular--button"
-              key={index}
-              variant="outlined"
-              disableRipple
-              // onClick={() => (item.url && item.url !== "#" ? to(item.url) : openComingSoon())}
-            >
+            <Button className="popular--button" key={index} variant="outlined" disableRipple>
               <Typography className="popular--typography" variant="main">
                 {item.label.toLowerCase()}
               </Typography>

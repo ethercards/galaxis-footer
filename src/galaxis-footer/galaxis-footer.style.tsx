@@ -6,6 +6,12 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
   ".galaxis-footer--container": {
     display: "flex",
     justifyContent: "center",
+    [theme.breakpoints.down("xxl")]: {
+      maxWidth: "1320px",
+    },
+    [theme.breakpoints.down("xl")]: {
+      justifyContent: "flex-start",
+    },
     [theme.breakpoints.up("lg")]: {
       paddingTop: "104px",
       maxWidth: "1200px",
@@ -21,12 +27,6 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
-    // [theme.breakpoints.between("sm", "lg")]: {
-    //   paddingTop: "80px",
-    // },
-    // [theme.breakpoints.down("sm")]: {
-    //   paddingTop: "64px",
-    // },
     ".galaxis-footer--grid-item": {
       maxWidth: "194px",
       [theme.breakpoints.between("sm", "md")]: {
@@ -50,8 +50,6 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     ".galaxis-footer--grid-item:nth-of-type(5)": {
       maxWidth: "100%",
       minWidth: "100%",
-      // paddingTop: "104px",
-      // paddingBottom: "64px",
     },
   },
 }));

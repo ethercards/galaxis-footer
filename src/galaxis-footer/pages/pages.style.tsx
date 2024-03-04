@@ -6,7 +6,6 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
   minWidth: "100%",
   ".pages--box": {
     color: theme.palette.gray.main,
-    maxWidth: "100%",
     display: "flex",
     flexDirection: "column",
     marginTop: "32px",

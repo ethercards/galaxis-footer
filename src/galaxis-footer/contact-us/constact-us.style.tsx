@@ -22,10 +22,15 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
   },
   ".contact-us--address": {
     opacity: "0.8",
+    fontSize: "16px",
+    fontFamily: "Poppins",
     ".contact-us--mailing-address": {
       p: {
         margin: "0px",
       },
+    },
+    ".contact-us--link": {
+      textDecoration: "none",
     },
   },
 }));

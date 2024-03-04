@@ -12,15 +12,12 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     paddingTop: "80px",
     paddingBottom: "40px",
   },
-  // [theme.breakpoints.down("sm")]: {
-  //   paddingTop: "32px",
-  // },
   ".copyright--typography": {
     fontSize: "12px",
     color: "#ffffff",
   },
   ".copyright--img": {
-    height: "12px",
+    width: "73px",
   },
 }));
 

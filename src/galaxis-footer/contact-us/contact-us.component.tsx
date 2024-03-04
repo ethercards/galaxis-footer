@@ -25,12 +25,15 @@ const ContactUs: FC<Props> = ({ socialMediaIcons, address }) => {
         <Typography variant="main" className="contact-us--address">
           <Box>
             <Typography
+              fontFamily="Poppins"
               className="contact-us--mailing-address"
               dangerouslySetInnerHTML={{
                 __html: address.mailingAddress,
               }}
             />
-            <Link href={`mailto:${address.emailAddress}`}>{address.emailAddress}</Link>
+            <Link href={`mailto:${address.emailAddress}`} className="contact-us--link">
+              {address.emailAddress}
+            </Link>
           </Box>
         </Typography>
       </Box>

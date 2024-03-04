@@ -8,11 +8,12 @@ const StyledWrapper = styled(Box)(() => ({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: "16px",
+    gap: "12px",
   },
   ".popular--button": {
     border: "1px solid",
     ".popular--typography": {
+      textTransform: "lowercase",
       fontSize: 14,
       lineHeight: "20px",
     },

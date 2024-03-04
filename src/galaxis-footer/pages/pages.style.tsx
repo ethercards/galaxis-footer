@@ -1,10 +1,11 @@
 import { Box, styled } from "@mui/material";
 
-const StyledWrapper = styled(Box)(() => ({
+const StyledWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   minWidth: "100%",
   ".pages--box": {
+    color: theme.palette.gray.main,
     maxWidth: "100%",
     display: "flex",
     flexDirection: "column",

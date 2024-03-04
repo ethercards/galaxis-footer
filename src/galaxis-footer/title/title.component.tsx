@@ -26,7 +26,6 @@ const CustomTitle: FC<Props> = ({
       sx={{ color: color, fontSize: fontSize, ...sx }}
     >
       {title}
-      {title}
     </Typography>
   );
 };

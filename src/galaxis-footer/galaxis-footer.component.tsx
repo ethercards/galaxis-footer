@@ -3,7 +3,7 @@ import AboutUs from "./about/about-us.component";
 import useCmsService from "../services/cms.service";
 import { CmsModel } from "../models/cms.model";
 import StyledWrapper from "./galaxis-footer.style";
-import { CssBaseline, Grid, ThemeProvider } from "@mui/material";
+import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { ContactUs } from "./contact-us";
 import { getActiveTheme } from "../utils/theme.util";
 import { Pages } from "./pages";
@@ -28,29 +28,31 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
   return (
     <ThemeProvider theme={getActiveTheme("dark")}>
       <CssBaseline />
-      <StyledWrapper container>
-        {cmsFooterInfos && (
-          <>
-            <Grid item xxs={12} lg={3} className="galaxis-footer--item">
-              <AboutUs text={cmsFooterInfos.aboutUs} />
+      <StyledWrapper>
+        <Container className="galaxis-footer--container">
+          {cmsFooterInfos && (
+            <Grid container className="galaxis-footer--grid-container">
+              <Grid item xxs={12} lg={3} className="galaxis-footer--grid-item">
+                <AboutUs text={cmsFooterInfos.aboutUs} />
+              </Grid>
+              <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--grid-item">
+                <Pages pages={cmsFooterInfos.pages} />
+              </Grid>
+              <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--grid-item">
+                <ContactUs
+                  socialMediaIcons={cmsFooterInfos.socialMediaIcons}
+                  address={cmsFooterInfos.address}
+                />
+              </Grid>
+              <Grid item xxs={12} sm={4} lg={3} className="galaxis-footer--grid-item">
+                <Popular popular={cmsFooterInfos.popular} />
+              </Grid>
+              <Grid item xxs={12} lg={12} className="galaxis-footer--grid-item">
+                <Copyright />
+              </Grid>
             </Grid>
-            <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--item">
-              <Pages pages={cmsFooterInfos.pages} />
-            </Grid>
-            <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--item">
-              <ContactUs
-                socialMediaIcons={cmsFooterInfos.socialMediaIcons}
-                address={cmsFooterInfos.address}
-              />
-            </Grid>
-            <Grid item xxs={12} sm={4} lg={3} className="galaxis-footer--item">
-              <Popular popular={cmsFooterInfos.popular} />
-            </Grid>
-            <Grid item xxs={12} lg={12} className="galaxis-footer--item">
-              <Copyright />
-            </Grid>
-          </>
-        )}
+          )}
+        </Container>
       </StyledWrapper>
     </ThemeProvider>
   );

@@ -1,6 +1,10 @@
 import { PaletteOptions, Theme, ThemeOptions, createTheme } from "@mui/material";
 import { customBreakpoints } from "./breakpoints.util";
 import { customVariant } from "./typography.util";
+import Poppins from "../fonts/poppins/Poppins.ttf";
+import PoppinsMedium from "../fonts/poppins/Poppins-Medium.ttf";
+import PoppinsSemiBold from "../fonts/poppins/Poppins-SemiBold.ttf";
+import BauRegular from "../fonts/bau/Bau-Regular.ttf";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -20,6 +24,34 @@ declare module "@mui/material/styles" {
     darkPurple: PaletteOptions["primary"];
   }
 }
+
+const poppins = {
+  fontFamily: "Poppins",
+  src: `url(${Poppins})`,
+  format: "('ttf')",
+  fontDisplay: "swap",
+};
+
+const poppinsMedium = {
+  fontFamily: "PoppinsMedium",
+  src: `url(${PoppinsMedium})`,
+  format: "('ttf')",
+  fontDisplay: "swap",
+};
+
+const poppinsSemiBold = {
+  fontFamily: "PoppinsSemiBold",
+  src: `url(${PoppinsSemiBold})`,
+  format: "('ttf')",
+  fontDisplay: "swap",
+};
+
+const bauRegular = {
+  fontFamily: "BauRegular",
+  src: `url(${BauRegular})`,
+  format: "('ttf')",
+  fontDisplay: "swap",
+};
 
 const generalThemeConfig: ThemeOptions = {
   palette: {
@@ -48,6 +80,18 @@ const generalThemeConfig: ThemeOptions = {
   typography: customVariant,
   breakpoints: {
     values: customBreakpoints,
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: [
+          { "@font-face": poppins },
+          { "@font-face": poppinsMedium },
+          { "@font-face": poppinsSemiBold },
+          { "@font-face": bauRegular },
+        ],
+      },
+    },
   },
 };
 

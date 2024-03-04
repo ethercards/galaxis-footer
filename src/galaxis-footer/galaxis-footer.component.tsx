@@ -7,8 +7,8 @@ import { CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { ContactUs } from "./contact-us";
 import { getActiveTheme } from "../utils/theme.util";
 import { Pages } from "./pages";
-import { Copyright } from "./copyright";
 import Popular from "./popular/popular.component";
+import Copyright from "./copyright/copyright.component";
 
 type GalaxisFooterProps = {
   url: string;

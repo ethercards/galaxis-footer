@@ -7,14 +7,11 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
   ".contact-us--details": {
     color: theme.palette.gray.main,
     marginTop: "32px",
-    [theme.breakpoints.down("sm")]: {
-      marginBottom: "40px",
-    },
+    [theme.breakpoints.down("sm")]: {},
   },
   ".contact-us--icons": {
     display: "flex",
     gap: "16px",
-    marginBottom: "48px",
     alignItems: "center",
     img: {
       height: "26.02px",
@@ -25,6 +22,7 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     fontSize: "16px",
     fontFamily: "Poppins",
     ".contact-us--mailing-address": {
+      marginTop: "48px",
       p: {
         margin: "0px",
       },

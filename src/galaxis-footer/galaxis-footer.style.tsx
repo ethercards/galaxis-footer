@@ -27,8 +27,18 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
+    [theme.breakpoints.down("lg")]: {
+      justifyContent: "flex-start",
+    },
     ".galaxis-footer--grid-item": {
       maxWidth: "194px",
+      [theme.breakpoints.down("lg")]: {
+        marginRight: "64px",
+        marginTop: "64px",
+      },
+      [theme.breakpoints.down("md")]: {
+        marginRight: "16px",
+      },
       [theme.breakpoints.between("sm", "md")]: {
         maxWidth: "172px",
       },
@@ -37,19 +47,21 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
       },
     },
     ".galaxis-footer--grid-item:nth-of-type(1)": {
+      marginTop: 0,
       [theme.breakpoints.up("xxs")]: {
         maxWidth: "100%",
       },
       [theme.breakpoints.up("lg")]: {
         maxWidth: "194px",
       },
-      [theme.breakpoints.between("sm", "md")]: {
-        marginBottom: "20px",
-      },
+    },
+    ".galaxis-footer--grid-item:nth-of-type(4)": {
+      marginRight: 0,
     },
     ".galaxis-footer--grid-item:nth-of-type(5)": {
       maxWidth: "100%",
       minWidth: "100%",
+      marginTop: 0,
     },
   },
 }));

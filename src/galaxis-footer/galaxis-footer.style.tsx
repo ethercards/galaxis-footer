@@ -2,6 +2,11 @@ import { Grid, styled } from "@mui/material";
 
 const StyledWrapper = styled(Grid)(({ theme }) => ({
   backgroundColor: theme.palette.darkPurple.main,
+  width: "100%",
+  paddingLeft: "24px",
+  paddingRight: "24px",
+  display: "flex",
+  justifyContent: "center",
   [theme.breakpoints.up("lg")]: {
     paddingTop: "104px",
   },
@@ -22,6 +27,9 @@ const StyledWrapper = styled(Grid)(({ theme }) => ({
   },
   [theme.breakpoints.between("sm", "md")]: {
     gap: theme.spacing(2),
+  },
+  [theme.breakpoints.down("xl")]: {
+    justifyContent: "flex-start",
   },
   [theme.breakpoints.down("sm")]: {
     gap: theme.spacing(2),

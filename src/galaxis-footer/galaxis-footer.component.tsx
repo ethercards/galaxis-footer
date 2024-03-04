@@ -34,7 +34,7 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
             <Grid item xxs={12} lg={3} className="galaxis-footer--item">
               <AboutUs text={cmsFooterInfos.aboutUs} />
             </Grid>
-            <Grid item xxs={12} lg={3} className="galaxis-footer--item">
+            <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--item">
               <Pages pages={cmsFooterInfos.pages} />
             </Grid>
             <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--item">
@@ -43,7 +43,7 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
                 address={cmsFooterInfos.address}
               />
             </Grid>
-            <Grid item xxs={12} lg={3} className="galaxis-footer--item">
+            <Grid item xxs={12} sm={4} lg={3} className="galaxis-footer--item">
               <Popular popular={cmsFooterInfos.popular} />
             </Grid>
             <Grid item xxs={12} lg={12} className="galaxis-footer--item">

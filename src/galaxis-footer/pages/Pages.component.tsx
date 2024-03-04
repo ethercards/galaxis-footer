@@ -9,7 +9,7 @@ type PagesProps = { pages: PageModel[] };
 const Pages: FC<PagesProps> = ({ pages }) => {
   console.log("pages", pages);
   return (
-    <StyledWrapper item xxs={6} xs={6} sm={4} md={4} lg={3}>
+    <StyledWrapper>
       <CustomTitle className="title" title="Pages" />
       <Box className="pages--box" data-testid="footer-pages-box">
         {pages.map((page, index) => (

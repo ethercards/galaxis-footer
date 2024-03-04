@@ -1,6 +1,8 @@
-import { Grid, styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 
-const StyledWrapper = styled(Grid)(() => ({
+const StyledWrapper = styled(Box)(() => ({
+  width: "100%",
+  display: "flex",
   alignItems: "center",
   justifyContent: "center",
   gap: "16px",

@@ -9,7 +9,7 @@ type PopularsProps = { popular: PopularModel[] };
 const Popular: FC<PopularsProps> = ({ popular }) => {
   console.log(popular);
   return (
-    <StyledWrapper item xxs={12} xs={12} sm={4} md={4} lg={3}>
+    <StyledWrapper>
       <CustomTitle className="popular--title" title="Popular" />
       <Box className="popular--box" data-testid="footer-popular-box">
         {popular &&

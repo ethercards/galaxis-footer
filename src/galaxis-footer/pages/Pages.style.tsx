@@ -1,9 +1,13 @@
-import { Grid, styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 
-const StyledWrapper = styled(Grid)(() => ({
+const StyledWrapper = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
+  minWidth: "100%",
   ".pages--box": {
+    maxWidth: "100%",
+    display: "flex",
+    flexDirection: "column",
     marginTop: "32px",
   },
   ".pages--typography": {

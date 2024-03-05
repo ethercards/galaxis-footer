@@ -7,7 +7,6 @@ import { PopularModel } from "../../models/popular.model";
 type PopularsProps = { popular: PopularModel[] };
 
 const Popular: FC<PopularsProps> = ({ popular }) => {
-  console.log(popular);
   return (
     <StyledWrapper>
       <CustomTitle className="popular--custom-title" title="Popular" />

@@ -7,7 +7,6 @@ import StyledWrapper from "./pages.style";
 type PagesProps = { pages: PageModel[] };
 
 const Pages: FC<PagesProps> = ({ pages }) => {
-  console.log("pages", pages);
   return (
     <StyledWrapper>
       <CustomTitle className="title" title="Pages" />

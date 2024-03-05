@@ -11,7 +11,7 @@ const Pages: FC<PagesProps> = ({ pages }) => {
   return (
     <StyledWrapper>
       <CustomTitle className="title" title="Pages" />
-      <Box className="pages--box" data-testid="footer-pages-box">
+      <Box className="pages--box" data-testid="pages-box">
         {pages.map((page, index) => (
           <Typography className="pages--typography" key={index} variant="main">
             <a>{page.label}</a>

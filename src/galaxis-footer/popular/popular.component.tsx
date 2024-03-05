@@ -10,8 +10,8 @@ const Popular: FC<PopularsProps> = ({ popular }) => {
   console.log(popular);
   return (
     <StyledWrapper>
-      <CustomTitle className="popular--title" title="Popular" />
-      <Box className="popular--box" data-testid="footer-popular-box">
+      <CustomTitle className="popular--custom-title" title="Popular" />
+      <Box className="popular--box" data-testid="popular-box">
         {popular &&
           popular.map((item, index) => (
             <Button className="popular--button" key={index} variant="outlined" disableRipple>

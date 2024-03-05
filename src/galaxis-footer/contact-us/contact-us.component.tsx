@@ -13,20 +13,20 @@ type Props = {
 const ContactUs: FC<Props> = ({ socialMediaIcons, address }) => {
   return (
     <StyledWrapper>
-      <CustomTitle className="contact-us--title" title="Contact Us" />
-      <Box className="contact-us--details">
-        <Box className="contact-us--icons">
+      <CustomTitle className="contact-us--custom-title" title="Contact Us" />
+      <Box className="contact-us--box">
+        <Box className="contact-us--box">
           {socialMediaIcons.map((icon, index) => (
             <Link key={index} href={icon.url}>
-              <img src={icon.iconPath} alt="icon" />
+              <img className="contact-us--img" src={icon.iconPath} alt="icon" />
             </Link>
           ))}
         </Box>
-        <Typography variant="main" className="contact-us--address">
+        <Typography variant="main" className="contact-us--typography">
           <Box>
             <Typography
               fontFamily="Poppins"
-              className="contact-us--mailing-address"
+              className="contact-us--typography"
               dangerouslySetInnerHTML={{
                 __html: address.mailingAddress,
               }}

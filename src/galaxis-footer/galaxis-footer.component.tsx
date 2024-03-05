@@ -10,17 +10,19 @@ import { Pages } from "./pages";
 import Popular from "./popular/popular.component";
 import Copyright from "./copyright/copyright.component";
 
-type GalaxisFooterProps = {
-  url: string;
+type Configuration = {
+  cmsUrl: string;
+  galaxisUrl?: string;
+  subjectForContactUs?: string;
 };
 
-const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
+const GalaxisFooter: FC<Configuration> = (configuration) => {
   const { getCmsInfos } = useCmsService();
   const [cmsFooterInfos, setCmsFooterInfos] = useState<CmsModel | null>(null);
 
   useEffect(() => {
     (async () => {
-      const cmsInfos = await getCmsInfos(url);
+      const cmsInfos = await getCmsInfos(configuration.cmsUrl);
       if (cmsInfos) setCmsFooterInfos(cmsInfos);
     })();
   }, []);

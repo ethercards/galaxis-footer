@@ -12,7 +12,7 @@ import Copyright from "./copyright/copyright.component";
 
 type Configuration = {
   cmsUrl: string;
-  galaxisUrl?: string;
+  galaxisUrl: string;
   subjectForContactUs?: string;
 };
 

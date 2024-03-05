@@ -49,18 +49,13 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     ".galaxis-footer--grid-item:nth-of-type(1)": {
       marginTop: 0,
       marginRight: 0,
-      [theme.breakpoints.up("xxs")]: {
-        maxWidth: "100%",
-      },
-      [theme.breakpoints.up("lg")]: {
-        maxWidth: "194px",
-      },
-
+      maxWidth: "194px",
       [theme.breakpoints.down("lg")]: {
         marginRight: "calc(100% - 411px)",
+        maxWidth: "100%",
       },
       [theme.breakpoints.down("xs")]: {
-        marginRight: "calc(100% - 28px)",
+        marginRight: "28px",
       },
     },
     ".galaxis-footer--grid-item:nth-of-type(4)": {

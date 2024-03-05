@@ -32,7 +32,7 @@ const GalaxisFooter: FC<GalaxisFooterProps> = ({ url }) => {
         <Container className="galaxis-footer--container">
           {cmsFooterInfos && (
             <Grid container className="galaxis-footer--grid-container">
-              <Grid item xxs={12} lg={3} className="galaxis-footer--grid-item">
+              <Grid item xxs={12} sm={12} md={12} lg={3} className="galaxis-footer--grid-item">
                 <AboutUs text={cmsFooterInfos.aboutUs} />
               </Grid>
               <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--grid-item">

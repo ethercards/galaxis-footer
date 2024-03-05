@@ -34,7 +34,7 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
       maxWidth: "194px",
       [theme.breakpoints.down("lg")]: {
         marginRight: "64px",
-        marginTop: "64px",
+        marginTop: "56px",
       },
       [theme.breakpoints.down("md")]: {
         marginRight: "16px",
@@ -48,11 +48,19 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     },
     ".galaxis-footer--grid-item:nth-of-type(1)": {
       marginTop: 0,
+      marginRight: 0,
       [theme.breakpoints.up("xxs")]: {
         maxWidth: "100%",
       },
       [theme.breakpoints.up("lg")]: {
         maxWidth: "194px",
+      },
+
+      [theme.breakpoints.down("lg")]: {
+        marginRight: "calc(100% - 411px)",
+      },
+      [theme.breakpoints.down("xs")]: {
+        marginRight: "calc(100% - 28px)",
       },
     },
     ".galaxis-footer--grid-item:nth-of-type(4)": {

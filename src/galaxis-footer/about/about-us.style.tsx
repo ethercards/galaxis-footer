@@ -8,6 +8,7 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
   ".about-us--box": {
     ".about-us--typography": {
       color: theme.palette.gray.main,
+      opacity: "0.8",
       marginTop: "20px",
     },
   },

@@ -62,7 +62,6 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
       marginRight: 0,
     },
     ".galaxis-footer--grid-item:nth-of-type(5)": {
-      maxWidth: "100%",
       minWidth: "100%",
       marginTop: 0,
     },

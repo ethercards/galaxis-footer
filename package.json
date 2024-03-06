@@ -1,6 +1,6 @@
 {
   "name": "galaxis-footer",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -10,13 +10,10 @@
     "url": "git+https://github.com/ethercards/galaxis-footer.git"
   },
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs && yarn copyFonts && yarn copyTypings",
-    "copyTypings": "yarn copyTypings:cjs && yarn copyTypings:esm",
-    "copyTypings:cjs": "cp -R ./src/typings ./dist/cjs",
-    "copyTypings:esm": "cp -R ./src/typings ./dist/esm",
-    "copyFonts": "yarn copyFonts:cjs && yarn copyFonts:esm",
-    "copyFonts:cjs": "cp -R ./src/fonts ./dist/cjs",
-    "copyFonts:esm": "cp -R ./src/fonts ./dist/esm",
+    "build": "yarn build:esm && yarn build:cjs && yarn copyFonts && yarn copyTypings && yarn copyWebpack",
+    "copyWebpack": "cp -R ./webpack.config.js ./dist/cjs && cp -R ./webpack.config.js ./dist/esm",
+    "copyTypings": "cp -R ./src/typings ./dist/cjs && cp -R ./src/typings ./dist/esm",
+    "copyFonts": "cp -R ./src/fonts ./dist/cjs && cp -R ./src/fonts ./dist/esm",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "prepare": "npm run build",

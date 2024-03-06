@@ -10,8 +10,22 @@ const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
   const [popular, setPopular] = useState<PopularModel[]>(initialPopular);
 
   useEffect(() => {
-    const path = window.location.pathname;
-    if (path.includes("engines")) {
+    const isGalaxisPath = window.location.href.startsWith("https://galaxis.xyz");
+
+    if (isGalaxisPath) {
+      const updatedPopular = initialPopular.map((item) => {
+        if (!item.url.startsWith("https://galaxis.xyz")) {
+          return { ...item };
+        }
+        const pathParts = item.url.split("/");
+        const path = pathParts[pathParts.length - 1];
+        return {
+          ...item,
+          url: path,
+        };
+      });
+      setPopular(updatedPopular);
+    } else {
       const updatedPopular = initialPopular.map((item) => ({
         ...item,
         openInNewTab: true,

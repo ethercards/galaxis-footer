@@ -10,13 +10,27 @@ const Pages: FC<PagesProps> = ({ pages: initialPages }) => {
   const [pages, setPages] = useState<PageModel[]>(initialPages);
 
   useEffect(() => {
-    const path = window.location.pathname;
-    if (path.includes("engines")) {
-      const updatedPages = initialPages.map((item) => ({
+    const isGalaxisPath = window.location.href.startsWith("https://galaxis.xyz");
+
+    if (isGalaxisPath) {
+      const updatedPopular = initialPages.map((item) => {
+        if (!item.url.startsWith("https://galaxis.xyz")) {
+          return { ...item };
+        }
+        const pathParts = item.url.split("/");
+        const path = pathParts[pathParts.length - 1];
+        return {
+          ...item,
+          url: path,
+        };
+      });
+      setPages(updatedPopular);
+    } else {
+      const updatedPopular = initialPages.map((item) => ({
         ...item,
         openInNewTab: true,
       }));
-      setPages(updatedPages);
+      setPages(updatedPopular);
     }
   }, [initialPages]);
 

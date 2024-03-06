@@ -19,6 +19,12 @@ Create an `index.html` into the `public` folder.
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Galaxis Footer</title>
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

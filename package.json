@@ -1,6 +1,6 @@
 {
   "name": "galaxis-footer",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -10,7 +10,10 @@
     "url": "git+https://github.com/ethercards/galaxis-footer.git"
   },
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs",
+    "build": "yarn build:esm && yarn build:cjs && yarn copyFonts",
+    "copyFonts": "yarn copyFonts:cjs && yarn copyFonts:esm",
+    "copyFonts:cjs": "cp -R ./src/fonts ./dist/cjs",
+    "copyFonts:esm": "cp -R ./src/fonts ./dist/esm",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "prepare": "npm run build",

@@ -1,1 +1,1 @@
-export * from './components';
+export * from "./galaxis-footer/galaxis-footer.component";

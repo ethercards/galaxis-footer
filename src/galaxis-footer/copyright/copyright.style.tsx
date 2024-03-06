@@ -16,9 +16,6 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     fontSize: "12px",
     color: "#ffffff",
   },
-  ".copyright--img": {
-    width: "73px",
-  },
 }));
 
 export default StyledWrapper;

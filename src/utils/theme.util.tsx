@@ -1,10 +1,7 @@
 import { PaletteOptions, Theme, ThemeOptions, createTheme } from "@mui/material";
 import { customBreakpoints } from "./breakpoints.util";
 import { customVariant } from "./typography.util";
-import Poppins from "../fonts/poppins/Poppins.ttf";
-import PoppinsMedium from "../fonts/poppins/Poppins-Medium.ttf";
-import PoppinsSemiBold from "../fonts/poppins/Poppins-SemiBold.ttf";
-import BauRegular from "../fonts/bau/Bau-Regular.ttf";
+import Fonts from "../fonts";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -27,28 +24,28 @@ declare module "@mui/material/styles" {
 
 const poppins = {
   fontFamily: "Poppins",
-  src: `url(${Poppins})`,
+  src: `url(${Fonts.Poppins})`,
   format: "('ttf')",
   fontDisplay: "swap",
 };
 
 const poppinsMedium = {
   fontFamily: "PoppinsMedium",
-  src: `url(${PoppinsMedium})`,
+  src: `url(${Fonts.PoppinsMedium})`,
   format: "('ttf')",
   fontDisplay: "swap",
 };
 
 const poppinsSemiBold = {
   fontFamily: "PoppinsSemiBold",
-  src: `url(${PoppinsSemiBold})`,
+  src: `url(${Fonts.PoppinsSemiBold})`,
   format: "('ttf')",
   fontDisplay: "swap",
 };
 
 const bauRegular = {
   fontFamily: "BauRegular",
-  src: `url(${BauRegular})`,
+  src: `url(${Fonts.BauRegular})`,
   format: "('ttf')",
   fontDisplay: "swap",
 };

@@ -3,7 +3,7 @@ import AboutUs from "./about/about-us.component";
 import useCmsService from "../services/cms.service";
 import { CmsModel } from "../models/cms.model";
 import StyledWrapper from "./galaxis-footer.style";
-import { Container, Grid, ThemeProvider } from "@mui/material";
+import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { ContactUs } from "./contact-us";
 import { getActiveTheme } from "../utils/theme.util";
 import { Pages } from "./pages";
@@ -29,6 +29,7 @@ const GalaxisFooter: FC<Configuration> = (configuration) => {
 
   return (
     <ThemeProvider theme={getActiveTheme("dark")}>
+      <CssBaseline />
       <StyledWrapper>
         <Container className="galaxis-footer--container">
           {cmsFooterInfos && (

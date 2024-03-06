@@ -1,49 +1,72 @@
-import { Grid, styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 
-const StyledWrapper = styled(Grid)(({ theme }) => ({
+const StyledWrapper = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.darkPurple.main,
-  [theme.breakpoints.up("lg")]: {
-    paddingTop: "104px",
-  },
-  [theme.breakpoints.between("sm", "lg")]: {
-    paddingTop: "80px",
-  },
-  [theme.breakpoints.down("sm")]: {
-    paddingTop: "64px",
-  },
-  [theme.breakpoints.up("xl")]: {
-    gap: theme.spacing(15),
-  },
-  [theme.breakpoints.between("lg", "xl")]: {
-    gap: theme.spacing(7),
-  },
-  [theme.breakpoints.between("md", "lg")]: {
-    gap: theme.spacing(8),
-  },
-  [theme.breakpoints.between("sm", "md")]: {
-    gap: theme.spacing(2),
-  },
-  [theme.breakpoints.down("sm")]: {
-    gap: theme.spacing(2),
-  },
-  ".galaxis-footer--item": {
-    maxWidth: "194px",
-    [theme.breakpoints.between("sm", "md")]: {
-      maxWidth: "172px",
+  width: "100%",
+  ".galaxis-footer--container": {
+    display: "flex",
+    justifyContent: "center",
+    [theme.breakpoints.down("xxl")]: {
+      maxWidth: "1320px",
     },
-    [theme.breakpoints.between("xxs", "sm")]: {
-      maxWidth: "153px",
-    },
-  },
-  ".galaxis-footer--item:nth-of-type(1)": {
-    [theme.breakpoints.up("xxs")]: {
-      maxWidth: "100%",
+    [theme.breakpoints.down("xl")]: {
+      justifyContent: "flex-start",
     },
     [theme.breakpoints.up("lg")]: {
-      maxWidth: "194px",
+      paddingTop: "104px",
+      maxWidth: "1200px",
     },
-    [theme.breakpoints.between("sm", "md")]: {
-      marginBottom: "20px",
+    [theme.breakpoints.between("sm", "lg")]: {
+      paddingTop: "80px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: "64px",
+    },
+  },
+  ".galaxis-footer--grid-container": {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    [theme.breakpoints.down("lg")]: {
+      justifyContent: "flex-start",
+    },
+    ".galaxis-footer--grid-item": {
+      maxWidth: "194px",
+      [theme.breakpoints.down("lg")]: {
+        marginRight: "64px",
+        marginTop: "56px",
+      },
+      [theme.breakpoints.down("md")]: {
+        marginRight: "16px",
+      },
+      [theme.breakpoints.between("sm", "md")]: {
+        maxWidth: "172px",
+      },
+      [theme.breakpoints.between("xxs", "sm")]: {
+        maxWidth: "153px",
+      },
+    },
+    ".galaxis-footer--grid-item:nth-of-type(1)": {
+      marginTop: 0,
+      marginRight: 0,
+      maxWidth: "194px",
+      [theme.breakpoints.down("lg")]: {
+        marginRight: "calc(100% - 411px)",
+        maxWidth: "100%",
+      },
+      [theme.breakpoints.down("xs")]: {
+        marginRight: "28px",
+      },
+    },
+    ".galaxis-footer--grid-item:nth-of-type(4)": {
+      marginRight: 0,
+      [theme.breakpoints.down("sm")]: {
+        marginRight: "16px",
+      },
+    },
+    ".galaxis-footer--grid-item:nth-of-type(5)": {
+      minWidth: "100%",
+      marginTop: 0,
     },
   },
 }));

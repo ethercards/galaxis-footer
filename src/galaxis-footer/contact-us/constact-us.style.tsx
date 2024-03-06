@@ -1,31 +1,33 @@
 import { Box, styled } from "@mui/material";
 
 const StyledWrapper = styled(Box)(({ theme }) => ({
-  ".contact-us--title": {
+  ".contact-us--custom-title": {
     color: theme.palette.white.main,
   },
-  ".contact-us--details": {
+  ".contact-us--box": {
     color: theme.palette.gray.main,
     marginTop: "32px",
-    [theme.breakpoints.down("sm")]: {
-      marginBottom: "40px",
+    ".contact-us--box": {
+      display: "flex",
+      gap: "16px",
+      alignItems: "center",
+      ".contact-us--img": {
+        height: "26.02px",
+      },
     },
   },
-  ".contact-us--icons": {
-    display: "flex",
-    gap: "16px",
-    marginBottom: "48px",
-    alignItems: "center",
-    img: {
-      height: "26.02px",
-    },
-  },
-  ".contact-us--address": {
+  ".contact-us--typography": {
     opacity: "0.8",
-    ".contact-us--mailing-address": {
+    fontSize: "16px",
+    fontFamily: "Poppins",
+    ".contact-us--typography": {
+      marginTop: "48px",
       p: {
         margin: "0px",
       },
+    },
+    ".contact-us--link": {
+      textDecoration: "none",
     },
   },
 }));

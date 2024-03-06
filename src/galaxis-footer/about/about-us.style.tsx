@@ -1,13 +1,14 @@
 import { Box, styled } from "@mui/material";
 
 const StyledWrapper = styled(Box)(({ theme }) => ({
-  ".footer--logo": {
+  ".about-us--galaxis-logo-icon": {
     width: "173px",
     cursor: "pointer",
   },
-  ".footer--box": {
-    ".footer--typography": {
+  ".about-us--box": {
+    ".about-us--typography": {
       color: theme.palette.gray.main,
+      opacity: "0.8",
       marginTop: "20px",
     },
   },

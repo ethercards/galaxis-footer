@@ -10,9 +10,9 @@ type Props = {
 const AboutUs: FC<Props> = ({ text }) => {
   return (
     <StyledWrapper>
-      <GalaxisLogoIcon className="footer--logo" />
-      <Box className="footer--box">
-        <Typography className="footer--typography">{text}</Typography>
+      <GalaxisLogoIcon className="about-us--galaxis-logo-icon" />
+      <Box className="about-us--box">
+        <Typography className="about-us--typography">{text}</Typography>
       </Box>
     </StyledWrapper>
   );

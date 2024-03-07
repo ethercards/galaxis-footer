@@ -10,17 +10,15 @@ const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
   const [popular, setPopular] = useState<PopularModel[]>(initialPopular);
 
   function getCurrentDomain(url: string): string {
-    // Regex to remove "dev." and "staging." from the URL
     const domainRegex = /^(?:https?:\/\/)?(?:dev\.|staging\.)?(.*?)\//;
     const matches = url.match(domainRegex);
     if (matches && matches.length >= 2) {
-      return matches[1]; // Return the domain without "dev." and "staging."
+      return matches[1];
     }
-    return url; // Return url if no match found
+    return url;
   }
 
   function areUrlsSame(url1: string, url2: string): boolean {
-    // If both URLs are identical, return true
     if (url1 === url2) {
       return true;
     }
@@ -36,14 +34,23 @@ const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
         if (!sameHost) {
           return { ...item, openInNewTab: true };
         } else {
-          const pathParts = item.url.split("/");
-          const path = "/" + pathParts[pathParts.length - 1];
+          const path = removeDomainFromUrl(item.url);
           return { ...item, url: path, openInNewTab: false };
         }
       });
     },
     [popular]
   );
+
+  function removeDomainFromUrl(url: string): string {
+    const pathRegex = /^(?:https?:\/\/)?[^\/]*(\/.*)/;
+    const match = url.match(pathRegex);
+
+    if (match && match.length > 1) {
+      return match[1];
+    }
+    return url;
+  }
 
   useEffect(() => {
     const hostName = "https://dev.galaxis.xyz/";

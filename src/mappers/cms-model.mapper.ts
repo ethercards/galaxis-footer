@@ -11,6 +11,7 @@ export const toModel = (dto: CmsDTO): CmsModel => ({
   socialMediaIcons: dto.social_media_icons.map((icon) => ({
     iconPath: icon.icon_path,
     url: icon.url,
+    openInNewTab: true,
   })),
   address: {
     mailingAddress: dto.address.mailing_address,

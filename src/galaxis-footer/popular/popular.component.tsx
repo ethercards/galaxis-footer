@@ -3,27 +3,12 @@ import StyledWrapper from "./popular.style";
 import CustomTitle from "../title/title.component";
 import { Box, Button, Link, Typography } from "@mui/material";
 import { PopularModel } from "../../models/popular.model";
+import { areUrlsSame, getCurrentDomain, removeDomainFromUrl } from "../../utils/links.util";
 
 type PopularsProps = { popular: PopularModel[] };
 
 const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
   const [popular, setPopular] = useState<PopularModel[]>(initialPopular);
-
-  function getCurrentDomain(url: string): string {
-    const domainRegex = /^(?:https?:\/\/)?(?:dev\.|staging\.)?(.*?)\//;
-    const matches = url.match(domainRegex);
-    if (matches && matches.length >= 2) {
-      return matches[1];
-    }
-    return url;
-  }
-
-  function areUrlsSame(url1: string, url2: string): boolean {
-    if (url1 === url2) {
-      return true;
-    }
-    return false;
-  }
 
   const popularItemsMapper = useCallback(
     (currentHostName: string): PopularModel[] => {
@@ -41,16 +26,6 @@ const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
     },
     [popular]
   );
-
-  function removeDomainFromUrl(url: string): string {
-    const pathRegex = /^(?:https?:\/\/)?[^\/]*(\/.*)/;
-    const match = url.match(pathRegex);
-
-    if (match && match.length > 1) {
-      return match[1];
-    }
-    return url;
-  }
 
   useEffect(() => {
     const hostName = "https://dev.galaxis.xyz/";

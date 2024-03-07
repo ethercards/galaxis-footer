@@ -1,0 +1,32 @@
+function getCurrentDomain(url: string): string {
+  const domainRegex = /^(?:https?:\/\/)?(?:dev\.|staging\.)?(.*?)\//;
+  const matches = url.match(domainRegex);
+  if (matches && matches.length >= 2) {
+    return matches[1];
+  }
+  return url;
+}
+
+function areUrlsSame(url1: string, url2: string): boolean {
+  if (url1 === url2) {
+    return true;
+  }
+  return false;
+}
+
+function removeDomainFromUrl(url: string): string {
+  const pathRegex = /^(?:https?:\/\/)?[^\/]*(\/.*)/;
+  const match = url.match(pathRegex);
+
+  if (match && match.length > 1) {
+    return match[1];
+  }
+  return url;
+}
+
+function isValidUrl(str: string): boolean {
+  const urlRegex = /^(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})(?:\/\S*)?$/;
+  return urlRegex.test(str);
+}
+
+export { getCurrentDomain, areUrlsSame, removeDomainFromUrl, isValidUrl };

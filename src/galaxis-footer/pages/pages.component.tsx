@@ -3,27 +3,12 @@ import { PageModel } from "../../models/page.model";
 import { Box, Link, Typography } from "@mui/material";
 import CustomTitle from "../title/title.component";
 import StyledWrapper from "./pages.style";
+import { areUrlsSame, getCurrentDomain, removeDomainFromUrl } from "../../utils/links.util";
 
 type PagesProps = { pages: PageModel[] };
 
 const Pages: FC<PagesProps> = ({ pages: initialPages }) => {
   const [pages, setPages] = useState<PageModel[]>(initialPages);
-
-  function getCurrentDomain(url: string): string {
-    const domainRegex = /^(?:https?:\/\/)?(?:dev\.|staging\.)?(.*?)\//;
-    const matches = url.match(domainRegex);
-    if (matches && matches.length >= 2) {
-      return matches[1];
-    }
-    return url;
-  }
-
-  function areUrlsSame(url1: string, url2: string): boolean {
-    if (url1 === url2) {
-      return true;
-    }
-    return false;
-  }
 
   const popularItemsMapper = useCallback(
     (currentHostName: string): PageModel[] => {
@@ -41,16 +26,6 @@ const Pages: FC<PagesProps> = ({ pages: initialPages }) => {
     },
     [pages]
   );
-
-  function removeDomainFromUrl(url: string): string {
-    const pathRegex = /^(?:https?:\/\/)?[^\/]*(\/.*)/;
-    const match = url.match(pathRegex);
-
-    if (match && match.length > 1) {
-      return match[1];
-    }
-    return url;
-  }
 
   useEffect(() => {
     const hostName = "https://dev.galaxis.xyz/";

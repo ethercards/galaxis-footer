@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import StyledWrapper from "./popular.style";
 import CustomTitle from "../title/title.component";
 import { Box, Button, Link, Typography } from "@mui/material";
@@ -9,30 +9,50 @@ type PopularsProps = { popular: PopularModel[] };
 const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
   const [popular, setPopular] = useState<PopularModel[]>(initialPopular);
 
-  useEffect(() => {
-    const isGalaxisPath = window.location.href.startsWith("https://galaxis.xyz");
-
-    if (isGalaxisPath) {
-      const updatedPopular = initialPopular.map((item) => {
-        if (!item.url.startsWith("https://galaxis.xyz")) {
-          return { ...item };
-        }
-        const pathParts = item.url.split("/");
-        const path = pathParts[pathParts.length - 1];
-        return {
-          ...item,
-          url: path,
-        };
-      });
-      setPopular(updatedPopular);
-    } else {
-      const updatedPopular = initialPopular.map((item) => ({
-        ...item,
-        openInNewTab: true,
-      }));
-      setPopular(updatedPopular);
+  function getCurrentDomain(url: string): string {
+    // Regex to remove "dev." and "staging." from the URL
+    const domainRegex = /^(?:https?:\/\/)?(?:dev\.|staging\.)?(.*?)\//;
+    const matches = url.match(domainRegex);
+    if (matches && matches.length >= 2) {
+      return matches[1]; // Return the domain without "dev." and "staging."
     }
-  }, [initialPopular]);
+    return url; // Return url if no match found
+  }
+
+  function areUrlsSame(url1: string, url2: string): boolean {
+    // If both URLs are identical, return true
+    if (url1 === url2) {
+      return true;
+    }
+    return false;
+  }
+
+  const popularItemsMapper = useCallback(
+    (currentHostName: string): PopularModel[] => {
+      return popular.map((item) => {
+        const currentUrl = getCurrentDomain(item.url);
+        const sameHost = areUrlsSame(currentHostName, currentUrl);
+
+        if (!sameHost) {
+          return { ...item, openInNewTab: true };
+        } else {
+          const pathParts = item.url.split("/");
+          const path = "/" + pathParts[pathParts.length - 1];
+          return { ...item, url: path, openInNewTab: false };
+        }
+      });
+    },
+    [popular]
+  );
+
+  useEffect(() => {
+    const hostName = "https://dev.galaxis.xyz/";
+    // const hostName = window.location.hostname;
+    const currentHostName = getCurrentDomain(hostName);
+    const updatedPopular = popularItemsMapper(currentHostName);
+
+    setPopular(updatedPopular);
+  }, []);
 
   return (
     <StyledWrapper>

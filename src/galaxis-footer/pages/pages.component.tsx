@@ -10,7 +10,7 @@ type PagesProps = { pages: PageModel[] };
 const Pages: FC<PagesProps> = ({ pages: initialPages }) => {
   const [pages, setPages] = useState<PageModel[]>(initialPages);
 
-  const popularItemsMapper = useCallback(
+  const pagesItemsMapper = useCallback(
     (currentHostName: string): PageModel[] => {
       return pages.map((item) => {
         const currentUrl = getCurrentDomain(item.url);
@@ -28,10 +28,9 @@ const Pages: FC<PagesProps> = ({ pages: initialPages }) => {
   );
 
   useEffect(() => {
-    const hostName = "https://dev.galaxis.xyz/";
-    // const hostName = window.location.hostname;
+    const hostName = window.location.hostname;
     const currentHostName = getCurrentDomain(hostName);
-    const updatedPopular = popularItemsMapper(currentHostName);
+    const updatedPopular = pagesItemsMapper(currentHostName);
 
     setPages(updatedPopular);
   }, []);

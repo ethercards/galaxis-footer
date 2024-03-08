@@ -20,7 +20,7 @@ type Props = {
 const ContactUs: FC<Props> = ({ socialMediaIcons: initialIcons, address }) => {
   const [socialMediaIcons, setSocialMediaIcons] = useState<SocialMediaIcon[]>(initialIcons);
 
-  const popularItemsMapper = useCallback(
+  const iconsMapper = useCallback(
     (currentHostName: string): SocialMediaIcon[] => {
       return socialMediaIcons.map((item) => {
         const currentUrl = getCurrentDomain(item.url);
@@ -31,16 +31,13 @@ const ContactUs: FC<Props> = ({ socialMediaIcons: initialIcons, address }) => {
         let generatedPath = null;
 
         if (!sameHost) {
-          // if (sameHost) {
           const path = generatedUrl ? generatedUrl : item.url;
-          console.log("Path", path);
           return { ...item, url: path, openInNewTab: true };
         } else {
           if (generatedUrl) {
             generatedPath = extractSubjectFromUrl(generatedUrl);
           }
           const path = removeDomainFromUrl(generatedPath ? generatedPath : item.url);
-          console.log("Path", path);
           return { ...item, url: path, openInNewTab: false };
         }
       });
@@ -49,10 +46,9 @@ const ContactUs: FC<Props> = ({ socialMediaIcons: initialIcons, address }) => {
   );
 
   useEffect(() => {
-    const hostName = "https://dev.galaxis.xyz/";
-    // const hostName = window.location.hostname;
+    const hostName = window.location.hostname;
     const currentHostName = getCurrentDomain(hostName);
-    const updatedPopular = popularItemsMapper(currentHostName);
+    const updatedPopular = iconsMapper(currentHostName);
 
     setSocialMediaIcons(updatedPopular);
   }, []);

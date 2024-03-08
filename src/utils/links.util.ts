@@ -25,8 +25,7 @@ function removeDomainFromUrl(url: string): string {
 }
 
 function containsContactForm(url: string): boolean {
-  const regex = /#/;
-  // const regex = /contact-form/i;
+  const regex = /contact-form/i;
   return regex.test(url);
 }
 

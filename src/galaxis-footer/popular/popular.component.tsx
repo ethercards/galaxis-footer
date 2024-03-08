@@ -10,8 +10,6 @@ type PopularsProps = { popular: PopularModel[] };
 const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
   const [popular, setPopular] = useState<PopularModel[]>(initialPopular);
 
-  console.log(initialPopular);
-
   const popularItemsMapper = useCallback(
     (currentHostName: string): PopularModel[] => {
       return popular.map((item) => {
@@ -30,8 +28,7 @@ const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
   );
 
   useEffect(() => {
-    const hostName = "https://dev.galaxis.xyz/";
-    // const hostName = window.location.hostname;
+    const hostName = window.location.hostname;
     const currentHostName = getCurrentDomain(hostName);
     const updatedPopular = popularItemsMapper(currentHostName);
 

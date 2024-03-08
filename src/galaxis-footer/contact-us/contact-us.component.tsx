@@ -8,7 +8,6 @@ import {
   areUrlsSame,
   extractSubjectFromUrl,
   generateContactFormUrl,
-  // generateContactFormUrl,
   getCurrentDomain,
   removeDomainFromUrl,
 } from "../../utils/links.util";

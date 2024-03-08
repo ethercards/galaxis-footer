@@ -10,6 +10,8 @@ type PopularsProps = { popular: PopularModel[] };
 const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
   const [popular, setPopular] = useState<PopularModel[]>(initialPopular);
 
+  console.log(initialPopular);
+
   const popularItemsMapper = useCallback(
     (currentHostName: string): PopularModel[] => {
       return popular.map((item) => {

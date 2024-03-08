@@ -24,9 +24,39 @@ function removeDomainFromUrl(url: string): string {
   return url;
 }
 
-function isValidUrl(str: string): boolean {
-  const urlRegex = /^(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})(?:\/\S*)?$/;
-  return urlRegex.test(str);
+// function isValidUrl(str: string): boolean {
+//   const urlRegex = /^(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})(?:\/\S*)?$/;
+//   return urlRegex.test(str);
+// }
+
+function containsContactForm(url: string): boolean {
+  const regex = /#/;
+  // const regex = /contact-form/i;
+  return regex.test(url);
 }
 
-export { getCurrentDomain, areUrlsSame, removeDomainFromUrl, isValidUrl };
+function generateContactFormUrl(url: string, subjectForContextUS: string): string | null {
+  if (containsContactForm(url)) {
+    const encodedSubject = encodeURIComponent(subjectForContextUS);
+    return `https://galaxis.xyz?subject=${encodedSubject}`;
+  } else {
+    // const encodedSubject = encodeURIComponent(subjectForContextUS);
+    // return `https://galaxis.xyz?subject=${encodedSubject}`;
+    return null;
+  }
+}
+
+function extractSubjectFromUrl(url: string): string | null {
+  const regex = /\?subject=.*$/;
+  const match = url.match(regex);
+  return match ? match[0] : null;
+}
+
+export {
+  getCurrentDomain,
+  areUrlsSame,
+  removeDomainFromUrl,
+  // containsContactForm,
+  generateContactFormUrl,
+  extractSubjectFromUrl,
+};

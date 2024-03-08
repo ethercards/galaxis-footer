@@ -6,8 +6,10 @@ import AddressModel from "../../models/address.model";
 import CustomTitle from "../title/title.component";
 import {
   areUrlsSame,
+  extractSubjectFromUrl,
+  generateContactFormUrl,
+  // generateContactFormUrl,
   getCurrentDomain,
-  isValidUrl,
   removeDomainFromUrl,
 } from "../../utils/links.util";
 
@@ -23,19 +25,23 @@ const ContactUs: FC<Props> = ({ socialMediaIcons: initialIcons, address }) => {
     (currentHostName: string): SocialMediaIcon[] => {
       return socialMediaIcons.map((item) => {
         const currentUrl = getCurrentDomain(item.url);
-        const isUrl = isValidUrl(item.url);
-
-        if (!isUrl) {
-          const path = "/" + item.url;
-          return { ...item, url: path, openInNewTab: false };
-        }
-
         const sameHost = areUrlsSame(currentHostName, currentUrl);
 
+        const subjectForContextUS = "custom subject here";
+        const generatedUrl = generateContactFormUrl(currentUrl, subjectForContextUS);
+        let generatedPath = null;
+
         if (!sameHost) {
-          return { ...item, openInNewTab: true };
+          // if (sameHost) {
+          const path = generatedUrl ? generatedUrl : item.url;
+          console.log("Path", path);
+          return { ...item, url: path, openInNewTab: true };
         } else {
-          const path = removeDomainFromUrl(item.url);
+          if (generatedUrl) {
+            generatedPath = extractSubjectFromUrl(generatedUrl);
+          }
+          const path = removeDomainFromUrl(generatedPath ? generatedPath : item.url);
+          console.log("Path", path);
           return { ...item, url: path, openInNewTab: false };
         }
       });

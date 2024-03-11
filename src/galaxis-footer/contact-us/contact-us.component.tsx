@@ -28,12 +28,12 @@ const ContactUs: FC<Props> = ({ socialMediaIcons: initialIcons, address }) => {
 
         const subjectForContactUs = "custom subject here";
         const generatedUrl = generateContactFormUrl(currentUrl, subjectForContactUs);
-        let generatedPath = null;
 
         if (!sameHost) {
           const path = generatedUrl ? generatedUrl : item.url;
           return { ...item, url: path, openInNewTab: true };
         } else {
+          let generatedPath = null;
           if (generatedUrl) {
             generatedPath = extractSubjectFromUrl(generatedUrl);
           }

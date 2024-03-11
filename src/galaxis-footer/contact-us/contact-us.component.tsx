@@ -26,8 +26,8 @@ const ContactUs: FC<Props> = ({ socialMediaIcons: initialIcons, address }) => {
         const currentUrl = getCurrentDomain(item.url);
         const sameHost = areUrlsSame(currentHostName, currentUrl);
 
-        const subjectForContextUS = "custom subject here";
-        const generatedUrl = generateContactFormUrl(currentUrl, subjectForContextUS);
+        const subjectForContactUs = "custom subject here";
+        const generatedUrl = generateContactFormUrl(currentUrl, subjectForContactUs);
         let generatedPath = null;
 
         if (!sameHost) {

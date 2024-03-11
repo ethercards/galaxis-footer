@@ -1,47 +1,56 @@
-function getCurrentDomain(url: string): string {
+const getCurrentDomain = (url: string): string => {
   const domainRegex = /^(?:https?:\/\/)?(?:dev\.|staging\.)?(.*?)\//;
   const matches = url.match(domainRegex);
   if (matches && matches.length >= 2) {
-    return matches[1];
+    const domain = matches[1];
+    return domain;
   }
   return url;
-}
+};
 
-function areUrlsSame(url1: string, url2: string): boolean {
+const areUrlsSame = (url1: string, url2: string): boolean => {
   if (url1 === url2) {
     return true;
   }
   return false;
-}
+};
 
-function removeDomainFromUrl(url: string): string {
+const removeDomainFromUrl = (url: string): string => {
   const pathRegex = /^(?:https?:\/\/)?[^\/]*(\/.*)/;
   const match = url.match(pathRegex);
 
   if (match && match.length > 1) {
-    return match[1];
+    const route = match[1];
+    return route;
   }
+
   return url;
-}
+};
 
-function containsContactForm(url: string): boolean {
+const containsContactForm = (url: string): boolean => {
   const regex = /contact-form/i;
-  return regex.test(url);
-}
+  const contains = regex.test(url);
+  return contains;
+};
 
-function generateContactFormUrl(url: string, subjectForContextUS: string): string | null {
+const generateContactFormUrl = (url: string, subjectForContactUs: string): string | null => {
   if (containsContactForm(url)) {
-    const encodedSubject = encodeURIComponent(subjectForContextUS);
-    return `https://galaxis.xyz?subject=${encodedSubject}`;
+    const encodedSubject = encodeURIComponent(subjectForContactUs);
+    const newUrl = `https://galaxis.xyz?subject=${encodedSubject}`;
+    return newUrl;
   }
   return null;
-}
+};
 
-function extractSubjectFromUrl(url: string): string | null {
+const extractSubjectFromUrl = (url: string): string | null => {
   const regex = /\?subject=.*$/;
   const match = url.match(regex);
-  return match ? match[0] : null;
-}
+  if (match) {
+    const subject = match[0];
+    return subject;
+  }
+  return null;
+};
 
 export {
   getCurrentDomain,

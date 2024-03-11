@@ -5,10 +5,10 @@ import { Box, Button, Link, Typography } from "@mui/material";
 import { PopularModel } from "../../models/popular.model";
 import { areUrlsSame, getCurrentDomain, removeDomainFromUrl } from "../../utils/links.util";
 
-type PopularsProps = { popular: PopularModel[] };
+type PopularsProps = { hostName: string; popular: PopularModel[] };
 
-const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
-  const [popular, setPopular] = useState<PopularModel[]>(initialPopular);
+const Popular: FC<PopularsProps> = ({ hostName, popular }) => {
+  const [popularItems, setPopularItems] = useState<PopularModel[]>(popular);
 
   const popularItemsMapper = useCallback(
     (currentHostName: string): PopularModel[] => {
@@ -28,11 +28,10 @@ const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
   );
 
   useEffect(() => {
-    const hostName = window.location.hostname;
     const currentHostName = getCurrentDomain(hostName);
     const updatedPopular = popularItemsMapper(currentHostName);
 
-    setPopular(updatedPopular);
+    setPopularItems(updatedPopular);
   }, []);
 
   return (
@@ -40,7 +39,7 @@ const Popular: FC<PopularsProps> = ({ popular: initialPopular }) => {
       <CustomTitle className="popular--custom-title" title="Popular" />
       <Box className="popular--box" data-testid="popular-box">
         {popular &&
-          popular.map((item, index) => (
+          popularItems.map((item, index) => (
             <Button className="popular--button" key={index} variant="outlined" disableRipple>
               <Typography className="popular--typography" variant="main">
                 <Link

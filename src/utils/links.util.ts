@@ -9,10 +9,7 @@ const getCurrentDomain = (url: string): string => {
 };
 
 const areUrlsSame = (url1: string, url2: string): boolean => {
-  if (url1 === url2) {
-    return true;
-  }
-  return false;
+  return url1 === url2;
 };
 
 const removeDomainFromUrl = (url: string): string => {
@@ -29,17 +26,15 @@ const removeDomainFromUrl = (url: string): string => {
 
 const containsContactForm = (url: string): boolean => {
   const regex = /contact-form/i;
-  const contains = regex.test(url);
-  return contains;
+  return regex.test(url);
 };
 
-const generateContactFormUrl = (url: string, subjectForContactUs: string): string | null => {
+const generateContactFormUrl = (url: string, subjectForContactUs: string): string | undefined => {
   if (containsContactForm(url)) {
     const encodedSubject = encodeURIComponent(subjectForContactUs);
-    const newUrl = `https://galaxis.xyz?subject=${encodedSubject}`;
-    return newUrl;
+    return `https://galaxis.xyz?subject=${encodedSubject}`;
   }
-  return null;
+  return undefined;
 };
 
 const extractSubjectFromUrl = (url: string): string | null => {

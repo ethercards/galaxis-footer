@@ -5,10 +5,10 @@ import CustomTitle from "../title/title.component";
 import StyledWrapper from "./pages.style";
 import { areUrlsSame, getCurrentDomain, removeDomainFromUrl } from "../../utils/links.util";
 
-type PagesProps = { pages: PageModel[] };
+type PagesProps = { hostName: string; pages: PageModel[] };
 
-const Pages: FC<PagesProps> = ({ pages: initialPages }) => {
-  const [pages, setPages] = useState<PageModel[]>(initialPages);
+const Pages: FC<PagesProps> = ({ hostName, pages }) => {
+  const [pagesItems, setPagesItems] = useState<PageModel[]>(pages);
 
   const pagesItemsMapper = useCallback(
     (currentHostName: string): PageModel[] => {
@@ -28,18 +28,17 @@ const Pages: FC<PagesProps> = ({ pages: initialPages }) => {
   );
 
   useEffect(() => {
-    const hostName = window.location.hostname;
     const currentHostName = getCurrentDomain(hostName);
     const updatedPopular = pagesItemsMapper(currentHostName);
 
-    setPages(updatedPopular);
+    setPagesItems(updatedPopular);
   }, []);
 
   return (
     <StyledWrapper>
       <CustomTitle className="title" title="Pages" />
       <Box className="pages--box" data-testid="pages-box">
-        {pages.map((page, index) => (
+        {pagesItems.map((page, index) => (
           <Typography className="pages--typography" key={index} variant="main">
             <Link
               className="pages--link"

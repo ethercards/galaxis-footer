@@ -12,13 +12,10 @@ import {
   removeDomainFromUrl,
 } from "../../utils/links.util";
 
-type Props = {
-  socialMediaIcons: SocialMediaIcon[];
-  address: AddressModel;
-};
+type Props = { hostName: string; socialMediaIcons: SocialMediaIcon[]; address: AddressModel };
 
-const ContactUs: FC<Props> = ({ socialMediaIcons: initialIcons, address }) => {
-  const [socialMediaIcons, setSocialMediaIcons] = useState<SocialMediaIcon[]>(initialIcons);
+const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, address }) => {
+  const [icons, setIcons] = useState<SocialMediaIcon[]>(socialMediaIcons);
 
   const iconsMapper = useCallback(
     (currentHostName: string): SocialMediaIcon[] => {
@@ -46,18 +43,18 @@ const ContactUs: FC<Props> = ({ socialMediaIcons: initialIcons, address }) => {
   );
 
   useEffect(() => {
-    const hostName = window.location.hostname;
     const currentHostName = getCurrentDomain(hostName);
     const updatedPopular = iconsMapper(currentHostName);
 
-    setSocialMediaIcons(updatedPopular);
+    setIcons(updatedPopular);
   }, []);
+
   return (
     <StyledWrapper>
       <CustomTitle className="contact-us--custom-title" title="Contact Us" />
       <Box className="contact-us--box">
         <Box className="contact-us--box">
-          {socialMediaIcons.map((icon, index) => (
+          {icons.map((icon, index) => (
             <Link key={index} href={icon.url} target={icon.openInNewTab ? "_blank" : "_self"}>
               <img className="contact-us--img" src={icon.iconPath} alt="icon" />
             </Link>

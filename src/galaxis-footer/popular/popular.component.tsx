@@ -2,16 +2,16 @@ import React, { FC, useCallback, useEffect, useState } from "react";
 import StyledWrapper from "./popular.style";
 import CustomTitle from "../title/title.component";
 import { Box, Button, Link, Typography } from "@mui/material";
-import { PopularModel } from "../../models/popular.model";
 import { areUrlsSame, getCurrentDomain, removeDomainFromUrl } from "../../utils/links.util";
+import { UrlModel } from "../../models/url.model";
 
-type PopularsProps = { hostName: string; popular: PopularModel[] };
+type PopularsProps = { hostName: string; popular: UrlModel[] };
 
 const Popular: FC<PopularsProps> = ({ hostName, popular }) => {
-  const [popularItems, setPopularItems] = useState<PopularModel[]>(popular);
+  const [popularItems, setPopularItems] = useState<UrlModel[]>(popular);
 
   const popularItemsMapper = useCallback(
-    (currentHostName: string): PopularModel[] => {
+    (currentHostName: string): UrlModel[] => {
       return popular.map((item) => {
         const currentUrl = getCurrentDomain(item.url);
         const sameHost = areUrlsSame(currentHostName, currentUrl);
@@ -47,7 +47,7 @@ const Popular: FC<PopularsProps> = ({ hostName, popular }) => {
                   href={item.url}
                   target={item.openInNewTab ? "_blank" : "_self"}
                 >
-                  {item.label.toLowerCase()}
+                  {item.label ? item.label.toLowerCase() : null}
                 </Link>
               </Typography>
             </Button>

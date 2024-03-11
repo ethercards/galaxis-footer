@@ -1,5 +1,5 @@
 import AddressModel from "./address.model";
-import SocialMediaIcon from "./social-media-icon.model";
+// import { UrlModel } from "./url.model";
 
 export interface CmsModel {
   aboutUs: string;
@@ -8,7 +8,11 @@ export interface CmsModel {
     url: string;
     openInNewTab: boolean;
   }[];
-  socialMediaIcons: SocialMediaIcon[];
+  socialMediaIcons: {
+    icon: string;
+    url: string;
+    openInNewTab: boolean;
+  }[];
   address: AddressModel;
   popular: {
     label: string;

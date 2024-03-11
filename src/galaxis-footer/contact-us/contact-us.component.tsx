@@ -1,6 +1,5 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
 import StyledWrapper from "./constact-us.style";
-import SocialMediaIcon from "../../models/social-media-icon.model";
 import { Box, Link, Typography } from "@mui/material";
 import AddressModel from "../../models/address.model";
 import CustomTitle from "../title/title.component";
@@ -11,14 +10,15 @@ import {
   getCurrentDomain,
   removeDomainFromUrl,
 } from "../../utils/links.util";
+import { UrlModel } from "../../models/url.model";
 
-type Props = { hostName: string; socialMediaIcons: SocialMediaIcon[]; address: AddressModel };
+type Props = { hostName: string; socialMediaIcons: UrlModel[]; address: AddressModel };
 
 const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, address }) => {
-  const [icons, setIcons] = useState<SocialMediaIcon[]>(socialMediaIcons);
+  const [iconItems, setIconItems] = useState<UrlModel[]>(socialMediaIcons);
 
   const iconsMapper = useCallback(
-    (currentHostName: string): SocialMediaIcon[] => {
+    (currentHostName: string): UrlModel[] => {
       return socialMediaIcons.map((item) => {
         const currentUrl = getCurrentDomain(item.url);
         const sameHost = areUrlsSame(currentHostName, currentUrl);
@@ -46,7 +46,7 @@ const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, address }) => {
     const currentHostName = getCurrentDomain(hostName);
     const updatedPopular = iconsMapper(currentHostName);
 
-    setIcons(updatedPopular);
+    setIconItems(updatedPopular);
   }, []);
 
   return (
@@ -54,9 +54,9 @@ const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, address }) => {
       <CustomTitle className="contact-us--custom-title" title="Contact Us" />
       <Box className="contact-us--box">
         <Box className="contact-us--box">
-          {icons.map((icon, index) => (
-            <Link key={index} href={icon.url} target={icon.openInNewTab ? "_blank" : "_self"}>
-              <img className="contact-us--img" src={icon.iconPath} alt="icon" />
+          {iconItems.map((item, index) => (
+            <Link key={index} href={item.url} target={item.openInNewTab ? "_blank" : "_self"}>
+              <img className="contact-us--img" src={item.icon} alt="icon" />
             </Link>
           ))}
         </Box>

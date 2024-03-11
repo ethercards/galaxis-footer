@@ -1,17 +1,17 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
-import { PageModel } from "../../models/page.model";
 import { Box, Link, Typography } from "@mui/material";
 import CustomTitle from "../title/title.component";
 import StyledWrapper from "./pages.style";
 import { areUrlsSame, getCurrentDomain, removeDomainFromUrl } from "../../utils/links.util";
+import { UrlModel } from "../../models/url.model";
 
-type PagesProps = { hostName: string; pages: PageModel[] };
+type PagesProps = { hostName: string; pages: UrlModel[] };
 
 const Pages: FC<PagesProps> = ({ hostName, pages }) => {
-  const [pagesItems, setPagesItems] = useState<PageModel[]>(pages);
+  const [pagesItems, setPagesItems] = useState<UrlModel[]>(pages);
 
   const pagesItemsMapper = useCallback(
-    (currentHostName: string): PageModel[] => {
+    (currentHostName: string): UrlModel[] => {
       return pages.map((item) => {
         const currentUrl = getCurrentDomain(item.url);
         const sameHost = areUrlsSame(currentHostName, currentUrl);

@@ -9,7 +9,7 @@ export const toModel = (dto: CmsDTO): CmsModel => ({
     openInNewTab: page.open_in_new_tab,
   })),
   socialMediaIcons: dto.social_media_icons.map((icon) => ({
-    iconPath: icon.icon_path,
+    icon: icon.icon_path,
     url: icon.url,
     openInNewTab: true,
   })),

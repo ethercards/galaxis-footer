@@ -1,35 +1,19 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import StyledWrapper from "./popular.style";
 import CustomTitle from "../title/title.component";
 import { Box, Button, Link, Typography } from "@mui/material";
-import { areUrlsSame, getCurrentDomain, removeDomainFromUrl } from "../../utils/links.util";
+import { getCurrentDomain, useItemsMapper } from "../../utils/links.util";
 import { UrlModel } from "../../models/url.model";
 
 type PopularsProps = { hostName: string; popular: UrlModel[] };
 
 const Popular: FC<PopularsProps> = ({ hostName, popular }) => {
+  const itemsMapper = useItemsMapper();
   const [popularItems, setPopularItems] = useState<UrlModel[]>(popular);
-
-  const popularItemsMapper = useCallback(
-    (currentHostName: string): UrlModel[] => {
-      return popular.map((item) => {
-        const currentUrl = getCurrentDomain(item.url);
-        const sameHost = areUrlsSame(currentHostName, currentUrl);
-
-        if (!sameHost) {
-          return { ...item, openInNewTab: true };
-        } else {
-          const path = removeDomainFromUrl(item.url);
-          return { ...item, url: path, openInNewTab: false };
-        }
-      });
-    },
-    [popular]
-  );
 
   useEffect(() => {
     const currentHostName = getCurrentDomain(hostName);
-    const updatedPopular = popularItemsMapper(currentHostName);
+    const updatedPopular = itemsMapper(currentHostName, popular);
 
     setPopularItems(updatedPopular);
   }, []);

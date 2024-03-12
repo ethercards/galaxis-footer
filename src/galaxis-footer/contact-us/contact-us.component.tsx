@@ -1,24 +1,33 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import StyledWrapper from "./constact-us.style";
-import SocialMediaIcon from "../../models/social-media-icon.model";
 import { Box, Link, Typography } from "@mui/material";
 import AddressModel from "../../models/address.model";
 import CustomTitle from "../title/title.component";
+import { getCurrentDomain, useItemsMapper } from "../../utils/links.util";
+import { UrlModel } from "../../models/url.model";
 
-type Props = {
-  socialMediaIcons: SocialMediaIcon[];
-  address: AddressModel;
-};
+type Props = { hostName: string; socialMediaIcons: UrlModel[]; address: AddressModel };
 
-const ContactUs: FC<Props> = ({ socialMediaIcons, address }) => {
+const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, address }) => {
+  const itemsMapper = useItemsMapper(socialMediaIcons);
+
+  const [iconItems, setIconItems] = useState<UrlModel[]>(socialMediaIcons);
+
+  useEffect(() => {
+    const currentHostName = getCurrentDomain(hostName);
+    const updatedPopular = itemsMapper(currentHostName, socialMediaIcons);
+
+    setIconItems(updatedPopular);
+  }, []);
+
   return (
     <StyledWrapper>
       <CustomTitle className="contact-us--custom-title" title="Contact Us" />
       <Box className="contact-us--box">
         <Box className="contact-us--box">
-          {socialMediaIcons.map((icon, index) => (
-            <Link key={index} href={icon.url}>
-              <img className="contact-us--img" src={icon.iconPath} alt="icon" />
+          {iconItems.map((item, index) => (
+            <Link key={index} href={item.url} target={item.openInNewTab ? "_blank" : "_self"}>
+              <img className="contact-us--img" src={item.icon} alt="icon" />
             </Link>
           ))}
         </Box>

@@ -19,6 +19,9 @@ const StyledWrapper = styled(Box)(() => ({
       textTransform: "lowercase",
       fontSize: 14,
       lineHeight: "20px",
+      ".popular--link": {
+        textDecoration: "none",
+      },
     },
   },
 }));

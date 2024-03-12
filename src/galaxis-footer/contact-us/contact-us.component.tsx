@@ -9,7 +9,7 @@ import { UrlModel } from "../../models/url.model";
 type Props = { hostName: string; socialMediaIcons: UrlModel[]; address: AddressModel };
 
 const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, address }) => {
-  const itemsMapper = useItemsMapper();
+  const itemsMapper = useItemsMapper(socialMediaIcons);
 
   const [iconItems, setIconItems] = useState<UrlModel[]>(socialMediaIcons);
 

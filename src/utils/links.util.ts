@@ -50,28 +50,31 @@ const extractSubjectFromUrl = (url: string): string | null => {
   return null;
 };
 
-const useItemsMapper = () => {
-  return useCallback((currentHostName: string, items: UrlModel[]): UrlModel[] => {
-    return items.map((item) => {
-      const currentUrl = getCurrentDomain(item.url);
-      const sameHost = areUrlsSame(currentHostName, currentUrl);
+const useItemsMapper = (items: UrlModel[]) => {
+  return useCallback(
+    (currentHostName: string, items: UrlModel[]): UrlModel[] => {
+      return items.map((item) => {
+        const currentUrl = getCurrentDomain(item.url);
+        const sameHost = areUrlsSame(currentHostName, currentUrl);
 
-      const subjectForContactUs = "custom subject here";
-      const generatedUrl = generateContactFormUrl(currentUrl, subjectForContactUs);
+        const subjectForContactUs = "custom subject here";
+        const generatedUrl = generateContactFormUrl(currentUrl, subjectForContactUs);
 
-      if (!sameHost) {
-        const path = generatedUrl ? generatedUrl : item.url;
-        return { ...item, url: path, openInNewTab: true };
-      } else {
-        let generatedPath = null;
-        if (generatedUrl) {
-          generatedPath = extractSubjectFromUrl(generatedUrl);
+        if (!sameHost) {
+          const path = generatedUrl ? generatedUrl : item.url;
+          return { ...item, url: path, openInNewTab: true };
+        } else {
+          let generatedPath = null;
+          if (generatedUrl) {
+            generatedPath = extractSubjectFromUrl(generatedUrl);
+          }
+          const path = removeDomainFromUrl(generatedPath ? generatedPath : item.url);
+          return { ...item, url: path, openInNewTab: false };
         }
-        const path = removeDomainFromUrl(generatedPath ? generatedPath : item.url);
-        return { ...item, url: path, openInNewTab: false };
-      }
-    });
-  }, []);
+      });
+    },
+    [items]
+  );
 };
 
 export {

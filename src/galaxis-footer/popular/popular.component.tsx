@@ -8,7 +8,7 @@ import { UrlModel } from "../../models/url.model";
 type PopularsProps = { hostName: string; popular: UrlModel[] };
 
 const Popular: FC<PopularsProps> = ({ hostName, popular }) => {
-  const itemsMapper = useItemsMapper();
+  const itemsMapper = useItemsMapper(popular);
   const [popularItems, setPopularItems] = useState<UrlModel[]>(popular);
 
   useEffect(() => {

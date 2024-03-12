@@ -8,7 +8,7 @@ import { UrlModel } from "../../models/url.model";
 type PagesProps = { hostName: string; pages: UrlModel[] };
 
 const Pages: FC<PagesProps> = ({ hostName, pages }) => {
-  const itemsMapper = useItemsMapper();
+  const itemsMapper = useItemsMapper(pages);
 
   const [pagesItems, setPagesItems] = useState<UrlModel[]>(pages);
 

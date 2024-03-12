@@ -2,10 +2,10 @@ import { useCallback } from "react";
 import { UrlModel } from "../models/url.model";
 
 const getCurrentDomain = (url: string): string => {
-  const domainRegex = /^(?:https?:\/\/)?(?:dev\.|staging\.)?(.*?)\//;
+  const domainRegex = /^(?:https?:\/\/)?(?:dev\.|staging\.)?([^\/]+)/;
   const matches = url.match(domainRegex);
   if (matches && matches.length >= 2) {
-    const domain = matches[1];
+    const [, domain] = matches;
     return domain;
   }
   return url;
@@ -20,7 +20,7 @@ const removeDomainFromUrl = (url: string): string => {
   const match = url.match(pathRegex);
 
   if (match && match.length > 1) {
-    const route = match[1];
+    const [, route] = match;
     return route;
   }
 
@@ -44,7 +44,7 @@ const extractSubjectFromUrl = (url: string): string | null => {
   const regex = /\?subject=.*$/;
   const match = url.match(regex);
   if (match) {
-    const subject = match[0];
+    const [subject] = match;
     return subject;
   }
   return null;

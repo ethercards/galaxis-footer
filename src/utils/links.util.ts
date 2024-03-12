@@ -1,16 +1,6 @@
 import { useCallback } from "react";
 import { UrlModel } from "../models/url.model";
 
-const getCurrentDomain = (url: string): string => {
-  const domainRegex = /^(?:https?:\/\/)?(?:dev\.|staging\.)?([^\/]+)/;
-  const matches = url.match(domainRegex);
-  if (matches && matches.length >= 2) {
-    const [, domain] = matches;
-    return domain;
-  }
-  return url;
-};
-
 const areUrlsSame = (url1: string, url2: string): boolean => {
   return url1 === url2;
 };
@@ -50,6 +40,16 @@ const extractSubjectFromUrl = (url: string): string | null => {
   return null;
 };
 
+const getCurrentDomain = (url: string): string => {
+  const domainRegex = /^(?:https?:\/\/)?(?:dev\.|staging\.)?([^\/]+)/;
+  const matches = url.match(domainRegex);
+  if (matches && matches.length >= 2) {
+    const [, domain] = matches;
+    return domain;
+  }
+  return url;
+};
+
 const useItemsMapper = (items: UrlModel[]) => {
   return useCallback(
     (currentHostName: string, items: UrlModel[]): UrlModel[] => {
@@ -77,11 +77,4 @@ const useItemsMapper = (items: UrlModel[]) => {
   );
 };
 
-export {
-  getCurrentDomain,
-  areUrlsSame,
-  removeDomainFromUrl,
-  generateContactFormUrl,
-  extractSubjectFromUrl,
-  useItemsMapper,
-};
+export { getCurrentDomain, useItemsMapper };

@@ -1,14 +1,13 @@
 import React, { FC, useEffect, useState } from "react";
 import StyledWrapper from "./constact-us.style";
 import { Box, Link, Typography } from "@mui/material";
-import AddressModel from "../../models/address.model";
 import CustomTitle from "../title/title.component";
 import { getCurrentDomain, useItemsMapper } from "../../utils/links.util";
 import { UrlModel } from "../../models/url.model";
 
-type Props = { hostName: string; socialMediaIcons: UrlModel[]; address: AddressModel };
+type Props = { hostName: string; socialMediaIcons: UrlModel[] };
 
-const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, address }) => {
+const ContactUs: FC<Props> = ({ hostName, socialMediaIcons }) => {
   const itemsMapper = useItemsMapper(socialMediaIcons);
 
   const [iconItems, setIconItems] = useState<UrlModel[]>(socialMediaIcons);
@@ -32,16 +31,9 @@ const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, address }) => {
           ))}
         </Box>
         <Typography variant="main" className="contact-us--typography">
-          <Box>
-            <Typography
-              fontFamily="Poppins"
-              className="contact-us--typography"
-              dangerouslySetInnerHTML={{
-                __html: address.mailingAddress,
-              }}
-            />
-            <Link href={`mailto:${address.emailAddress}`} className="contact-us--link">
-              {address.emailAddress}
+          <Box className="contact-us--box">
+            <Link href="https://galaxis.xyz/imprint" target="_blank" className="contact-us--link">
+              Imprint
             </Link>
           </Box>
         </Typography>

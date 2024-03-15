@@ -11,11 +11,10 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
   },
   ".pages--typography": {
     cursor: "pointer",
-    opacity: 0.8,
   },
   ".pages--link": {
     textDecoration: "none",
-    color: theme.palette.gray.main,
+    color: theme.palette.primary.main,
   },
 }));
 

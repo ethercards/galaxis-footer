@@ -22,10 +22,15 @@ const containsContactForm = (url: string): boolean => {
   return regex.test(url);
 };
 
-const generateContactFormUrl = (url: string, subjectForContactUs: string): string | undefined => {
+const generateContactFormUrl = (url: string, subjectForContactUs?: string): string | undefined => {
   if (containsContactForm(url)) {
-    const encodedSubject = encodeURIComponent(subjectForContactUs);
-    return `https://galaxis.xyz?subject=${encodedSubject}`;
+    if (subjectForContactUs) {
+      const encodedSubject = encodeURIComponent(subjectForContactUs);
+      return `https://galaxis.xyz?subject=${encodedSubject}`;
+    } else {
+      const subjectFromCms = url.split("=")[1];
+      return `https://galaxis.xyz?subject=${subjectFromCms}`;
+    }
   }
   return undefined;
 };
@@ -50,15 +55,14 @@ const getCurrentDomain = (url: string): string => {
   return url;
 };
 
-const useItemsMapper = (items: UrlModel[]) => {
+const useItemsMapper = (items: UrlModel[], customSubject?: string) => {
   return useCallback(
     (currentHostName: string, items: UrlModel[]): UrlModel[] => {
       return items.map((item) => {
         const currentUrl = getCurrentDomain(item.url);
         const sameHost = areUrlsSame(currentHostName, currentUrl);
 
-        const subjectForContactUs = "custom subject here";
-        const generatedUrl = generateContactFormUrl(currentUrl, subjectForContactUs);
+        const generatedUrl = generateContactFormUrl(currentUrl, customSubject ?? customSubject);
 
         if (!sameHost) {
           const path = generatedUrl ? generatedUrl : item.url;

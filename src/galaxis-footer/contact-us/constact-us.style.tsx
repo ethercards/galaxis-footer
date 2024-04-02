@@ -4,7 +4,7 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
   ".contact-us--custom-title": {
     color: theme.palette.white.main,
   },
-  ".contact-us--box": {
+  "> .contact-us--box": {
     color: theme.palette.gray.main,
     marginTop: "32px",
     ".contact-us--box": {
@@ -17,7 +17,6 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     },
   },
   ".contact-us--typography": {
-    opacity: "0.8",
     fontSize: "16px",
     fontFamily: "Poppins",
     ".contact-us--typography": {
@@ -26,8 +25,11 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
         margin: "0px",
       },
     },
-    ".contact-us--link": {
-      textDecoration: "none",
+    ".contact-us--box": {
+      marginTop: "15px",
+      ".contact-us--link": {
+        textDecoration: "none",
+      },
     },
   },
 }));

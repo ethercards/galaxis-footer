@@ -20,6 +20,8 @@ const GalaxisFooter: FC<Configuration> = (configuration) => {
   const { getCmsInfos } = useCmsService();
   const [cmsFooterInfos, setCmsFooterInfos] = useState<CmsModel | null>(null);
 
+  const hostName = window.location.hostname;
+
   useEffect(() => {
     (async () => {
       const cmsInfos = await getCmsInfos(configuration.cmsUrl);
@@ -37,16 +39,13 @@ const GalaxisFooter: FC<Configuration> = (configuration) => {
                 <AboutUs text={cmsFooterInfos.aboutUs} />
               </Grid>
               <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--grid-item">
-                <Pages pages={cmsFooterInfos.pages} />
+                <Pages hostName={hostName} pages={cmsFooterInfos.pages} />
               </Grid>
               <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--grid-item">
-                <ContactUs
-                  socialMediaIcons={cmsFooterInfos.socialMediaIcons}
-                  address={cmsFooterInfos.address}
-                />
+                <ContactUs hostName={hostName} socialMediaIcons={cmsFooterInfos.socialMediaIcons} />
               </Grid>
               <Grid item xxs={12} sm={4} lg={3} className="galaxis-footer--grid-item">
-                <Popular popular={cmsFooterInfos.popular} />
+                <Popular hostName={hostName} popular={cmsFooterInfos.popular} />
               </Grid>
               <Grid item xxs={12} lg={12} className="galaxis-footer--grid-item">
                 <Copyright />

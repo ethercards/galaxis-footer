@@ -42,7 +42,12 @@ const GalaxisFooter: FC<Configuration> = (configuration) => {
                 <Pages hostName={hostName} pages={cmsFooterInfos.pages} />
               </Grid>
               <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--grid-item">
-                <ContactUs hostName={hostName} socialMediaIcons={cmsFooterInfos.socialMediaIcons} />
+                <ContactUs
+                  hostName={hostName}
+                  socialMediaIcons={cmsFooterInfos.socialMediaIcons}
+                  customSubject={configuration.subjectForContactUs}
+                  url={configuration.galaxisUrl}
+                />
               </Grid>
               <Grid item xxs={12} sm={4} lg={3} className="galaxis-footer--grid-item">
                 <Popular hostName={hostName} popular={cmsFooterInfos.popular} />

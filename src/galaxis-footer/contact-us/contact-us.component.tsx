@@ -5,10 +5,15 @@ import CustomTitle from "../title/title.component";
 import { getCurrentDomain, useItemsMapper } from "../../utils/links.util";
 import { UrlModel } from "../../models/url.model";
 
-type Props = { hostName: string; socialMediaIcons: UrlModel[] };
+type Props = {
+  hostName: string;
+  socialMediaIcons: UrlModel[];
+  customSubject?: string;
+  url: string;
+};
 
-const ContactUs: FC<Props> = ({ hostName, socialMediaIcons }) => {
-  const itemsMapper = useItemsMapper(socialMediaIcons);
+const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, customSubject, url }) => {
+  const itemsMapper = useItemsMapper(socialMediaIcons, customSubject, url);
 
   const [iconItems, setIconItems] = useState<UrlModel[]>(socialMediaIcons);
 

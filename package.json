@@ -1,6 +1,6 @@
 {
   "name": "galaxis-footer",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -48,16 +48,15 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "ts-jest": "^29.1.2",
-    "typescript": "^5.3.3"
-  },
-  "peerDependencies": {
-    "react": ">=16"
-  },
-  "dependencies": {
+    "typescript": "^5.3.3",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.11"
   },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "dependencies": {},
   "browserslist": {
     "production": [
       ">0.2%",

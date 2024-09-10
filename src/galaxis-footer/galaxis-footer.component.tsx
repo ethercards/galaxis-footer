@@ -47,6 +47,7 @@ const GalaxisFooter: FC<Configuration> = (configuration) => {
                   socialMediaIcons={cmsFooterInfos.socialMediaIcons}
                   customSubject={configuration.subjectForContactUs}
                   url={configuration.galaxisUrl}
+                  contactUsPages={cmsFooterInfos.contactUsPages}
                 />
               </Grid>
               <Grid item xxs={12} sm={4} lg={3} className="galaxis-footer--grid-item">

@@ -22,4 +22,9 @@ export const toModel = (dto: CmsDTO): CmsModel => ({
     url: popularItem.url,
     openInNewTab: popularItem.open_in_new_tab,
   })),
+  contactUsPages: dto.contact_us_pages.map((page) => ({
+    label: page.label,
+    url: page.url,
+    openInNewTab: true,
+  })),
 });

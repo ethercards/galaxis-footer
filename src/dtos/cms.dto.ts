@@ -9,7 +9,10 @@ export interface CmsDTO {
     icon_path: string;
     url: string;
   }[];
-
+  contact_us_pages: {
+    label: string;
+    url: string;
+  }[];
   address: {
     mailing_address: string;
     email_address: string;

@@ -7,4 +7,5 @@ export interface CmsModel {
   socialMediaIcons: UrlModel[];
   address: AddressModel;
   popular: UrlModel[];
+  contactUsPages: UrlModel[];
 }

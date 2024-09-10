@@ -10,18 +10,28 @@ type Props = {
   socialMediaIcons: UrlModel[];
   customSubject?: string;
   url: string;
+  contactUsPages: UrlModel[];
 };
 
-const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, customSubject, url }) => {
+const ContactUs: FC<Props> = ({
+  hostName,
+  socialMediaIcons,
+  customSubject,
+  url,
+  contactUsPages,
+}) => {
   const itemsMapper = useItemsMapper(socialMediaIcons, customSubject, url);
-
+  const pagesMapper = useItemsMapper(contactUsPages, url);
   const [iconItems, setIconItems] = useState<UrlModel[]>(socialMediaIcons);
+  const [contactPages, setContactPages] = useState<UrlModel[]>(contactUsPages);
 
   useEffect(() => {
     const currentHostName = getCurrentDomain(hostName);
     const updatedPopular = itemsMapper(currentHostName, socialMediaIcons);
-
     setIconItems(updatedPopular);
+
+    const updatedPages = pagesMapper(currentHostName, contactUsPages);
+    setContactPages(updatedPages);
   }, []);
 
   return (
@@ -35,13 +45,20 @@ const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, customSubject, url }
             </Link>
           ))}
         </Box>
-        <Typography variant="main" className="contact-us--typography">
-          <Box className="contact-us--box">
-            <Link href="https://galaxis.xyz/imprint" target="_blank" className="contact-us--link">
-              Imprint
-            </Link>
-          </Box>
-        </Typography>
+
+        <Box className="contact-us--box pages">
+          {contactPages.map((page, index) => (
+            <Typography key={index} variant="main">
+              <Link
+                href={page.url}
+                target={page.openInNewTab ? "_blank" : "_self"}
+                className="contact-us--link"
+              >
+                {page.label}
+              </Link>
+            </Typography>
+          ))}
+        </Box>
       </Box>
     </StyledWrapper>
   );

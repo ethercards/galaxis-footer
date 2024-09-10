@@ -16,20 +16,14 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
       },
     },
   },
-  ".contact-us--typography": {
-    fontSize: "16px",
-    fontFamily: "Poppins",
-    ".contact-us--typography": {
-      marginTop: "48px",
-      p: {
-        margin: "0px",
-      },
-    },
-    ".contact-us--box": {
-      marginTop: "15px",
-      ".contact-us--link": {
-        textDecoration: "none",
-      },
+  ".contact-us--box.pages": {
+    marginTop: "15px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: 0,
+    ".contact-us--link": {
+      textDecoration: "none",
     },
   },
 }));

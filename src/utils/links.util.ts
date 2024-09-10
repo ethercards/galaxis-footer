@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { UrlModel } from "../models/url.model";
 
-const areUrlsSame = (url1: string, url2: string): boolean => {
+export const areUrlsSame = (url1: string, url2: string): boolean => {
   return url1 === url2;
 };
 

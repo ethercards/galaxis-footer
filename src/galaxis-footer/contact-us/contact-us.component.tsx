@@ -20,15 +20,12 @@ const ContactUs: FC<Props> = ({ hostName, socialMediaIcons, customSubject, url }
 
   useEffect(() => {
     const currentHostName = getCurrentDomain(hostName);
-    console.log(currentHostName, "currentHostName");
     const updatedPopular = itemsMapper(currentHostName, socialMediaIcons);
+    setIconItems(updatedPopular);
 
     const imprintDomain = getCurrentDomain(imprintUrl);
-    console.log(imprintDomain, "imprintDomain");
     const sameDomain = areUrlsSame(currentHostName, imprintDomain);
     setImprintShouldOpenInNewTab(!sameDomain);
-
-    setIconItems(updatedPopular);
   }, []);
 
   return (

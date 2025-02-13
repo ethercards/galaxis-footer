@@ -63,6 +63,11 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
       [theme.breakpoints.down("sm")]: {
         marginRight: "16px",
       },
+      ".galaxis-footer--box": {
+        display: "flex",
+        flexDirection: "column",
+        gap: theme.spacing(3),
+      },
     },
     ".galaxis-footer--grid-item:nth-of-type(5)": {
       minWidth: "100%",

@@ -17,7 +17,6 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     },
   },
   ".contact-us--box.pages": {
-    marginTop: "15px",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",

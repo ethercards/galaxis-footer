@@ -44,20 +44,19 @@ const ContactUs: FC<Props> = ({
               <img className="contact-us--img" src={item.icon} alt="icon" />
             </Link>
           ))}
-        </Box>
-
-        <Box className="contact-us--box pages">
-          {contactPages.map((page, index) => (
-            <Typography key={index} variant="main">
-              <Link
-                href={page.url}
-                target={page.openInNewTab ? "_blank" : "_self"}
-                className="contact-us--link"
-              >
-                {page.label}
-              </Link>
-            </Typography>
-          ))}
+          <Box className="contact-us--box pages">
+            {contactPages.map((page, index) => (
+              <Typography key={index} variant="main">
+                <Link
+                  href={page.url}
+                  target={page.openInNewTab ? "_blank" : "_self"}
+                  className="contact-us--link"
+                >
+                  {page.label}
+                </Link>
+              </Typography>
+            ))}
+          </Box>
         </Box>
       </Box>
     </StyledWrapper>

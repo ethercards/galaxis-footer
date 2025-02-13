@@ -20,7 +20,7 @@ const Popular: FC<PopularsProps> = ({ hostName, popular }) => {
 
   return (
     <StyledWrapper>
-      <CustomTitle className="popular--custom-title" title="Popular" />
+      <CustomTitle className="popular--custom-title" title="Popular tags" />
       <Box className="popular--box" data-testid="popular-box">
         {popular &&
           popularItems.map((item, index) => (

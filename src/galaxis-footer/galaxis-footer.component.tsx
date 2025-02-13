@@ -3,12 +3,13 @@ import AboutUs from "./about/about-us.component";
 import useCmsService from "../services/cms.service";
 import { CmsModel } from "../models/cms.model";
 import StyledWrapper from "./galaxis-footer.style";
-import { Container, Grid, ThemeProvider } from "@mui/material";
+import { Box, Container, Grid, ThemeProvider } from "@mui/material";
 import { ContactUs } from "./contact-us";
 import { getActiveTheme } from "../utils/theme.util";
 import { Pages } from "./pages";
 import Popular from "./popular/popular.component";
 import Copyright from "./copyright/copyright.component";
+import Contracts from "./contracts/contracts.component";
 
 type Configuration = {
   cmsUrl: string;
@@ -42,16 +43,19 @@ const GalaxisFooter: FC<Configuration> = (configuration) => {
                 <Pages hostName={hostName} pages={cmsFooterInfos.pages} />
               </Grid>
               <Grid item xxs={6} sm={4} lg={3} className="galaxis-footer--grid-item">
-                <ContactUs
-                  hostName={hostName}
-                  socialMediaIcons={cmsFooterInfos.socialMediaIcons}
-                  customSubject={configuration.subjectForContactUs}
-                  url={configuration.galaxisUrl}
-                  contactUsPages={cmsFooterInfos.contactUsPages}
-                />
+                <Contracts />
               </Grid>
               <Grid item xxs={12} sm={4} lg={3} className="galaxis-footer--grid-item">
-                <Popular hostName={hostName} popular={cmsFooterInfos.popular} />
+                <Box className="galaxis-footer--box">
+                  <ContactUs
+                    hostName={hostName}
+                    socialMediaIcons={cmsFooterInfos.socialMediaIcons}
+                    customSubject={configuration.subjectForContactUs}
+                    url={configuration.galaxisUrl}
+                    contactUsPages={cmsFooterInfos.contactUsPages}
+                  />
+                  <Popular hostName={hostName} popular={cmsFooterInfos.popular} />
+                </Box>
               </Grid>
               <Grid item xxs={12} lg={12} className="galaxis-footer--grid-item">
                 <Copyright />

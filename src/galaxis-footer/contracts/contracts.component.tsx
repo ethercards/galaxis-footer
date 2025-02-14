@@ -1,10 +1,11 @@
 import React, { FC, useState } from "react";
-import { Box, SnackbarContent, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import CustomTitle from "../title/title.component";
 import StyledWrapper from "./contracts.style";
 import {
   ArbitrumIcon,
   BaseIcon,
+  CheckIcon,
   CloseIcon,
   CopyIcon,
   EthereumIcon,
@@ -39,11 +40,15 @@ const Contracts: FC = () => {
         onClose={() => setSnackbarOpen(false)}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
-        <SnackbarContent
-          message="Link copied!"
-          className="snackbar-content"
-          action={<CloseIcon className="close-icon" onClick={() => setSnackbarOpen(false)} />}
-        />
+        <Box className="snackbar-content">
+          <Box className="snackbar-content-box">
+            <CheckIcon className="check-icon" />
+            <Typography variant="main" className="contracts--typography">
+              Block explorer link copied!
+            </Typography>
+          </Box>
+          <CloseIcon className="close-icon" onClick={() => setSnackbarOpen(false)} />
+        </Box>
       </Snackbar>
       <Box className="contracts--box">
         <Box

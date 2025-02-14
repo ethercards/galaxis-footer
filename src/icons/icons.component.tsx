@@ -152,6 +152,7 @@ const ArbitrumIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
 const BaseIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="17"
@@ -168,6 +169,49 @@ const BaseIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+const CloseIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    width="8"
+    height="8"
+    viewBox="0 0 256 256"
+    {...props}
+  >
+    <defs></defs>
+    <g
+      transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+      fill="white"
+      stroke="white"
+    >
+      <path
+        d="M 3 90 c -0.768 0 -1.536 -0.293 -2.121 -0.879 c -1.172 -1.171 -1.172 -3.071 0 -4.242 l 84 -84 c 1.172 -1.172 3.07 -1.172 4.242 0 c 1.172 1.171 1.172 3.071 0 4.242 l -84 84 C 4.536 89.707 3.768 90 3 90 z"
+        transform=" matrix(1 0 0 1 0 0) "
+        stroke-linecap="round"
+      />
+      <path
+        d="M 87 90 c -0.768 0 -1.535 -0.293 -2.121 -0.879 l -84 -84 c -1.172 -1.171 -1.172 -3.071 0 -4.242 c 1.171 -1.172 3.071 -1.172 4.242 0 l 84 84 c 1.172 1.171 1.172 3.071 0 4.242 C 88.535 89.707 87.768 90 87 90 z"
+        transform=" matrix(1 0 0 1 0 0) "
+        stroke-linecap="round"
+      />
+    </g>
+  </svg>
+);
+
+const CheckIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="18px"
+    viewBox="0 0 24 24"
+    width="18px"
+    fill="#e8eaed"
+    {...props}
+  >
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+  </svg>
+);
+
 export {
   GalaxisLogoIcon,
   GalaxisLogo,
@@ -176,4 +220,6 @@ export {
   PolygonIcon,
   ArbitrumIcon,
   BaseIcon,
+  CloseIcon,
+  CheckIcon,
 };

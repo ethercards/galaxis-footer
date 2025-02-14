@@ -33,7 +33,12 @@ const Contracts: FC = () => {
   return (
     <StyledWrapper>
       <CustomTitle className="contracts--custom-title" title="Contract" />
-      <Snackbar open={snackbarOpen} autoHideDuration={5000} onClose={() => setSnackbarOpen(false)}>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={5000}
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
         <SnackbarContent
           message="Link copied!"
           className="snackbar-content"
@@ -53,7 +58,9 @@ const Contracts: FC = () => {
           >
             Ethereum
           </Typography>
-          <CopyIcon className="copy-icon" />
+          <Box title="Copy">
+            <CopyIcon className="copy-icon" />
+          </Box>
         </Box>
         <Box
           className="contracts--box"
@@ -67,7 +74,9 @@ const Contracts: FC = () => {
           >
             Polygon
           </Typography>
-          <CopyIcon className="copy-icon" />
+          <Box title="Copy">
+            <CopyIcon className="copy-icon" />
+          </Box>
         </Box>
         <Box
           className="contracts--box"
@@ -81,7 +90,9 @@ const Contracts: FC = () => {
           >
             Arbitrum One
           </Typography>
-          <CopyIcon className="copy-icon" />
+          <Box title="Copy">
+            <CopyIcon className="copy-icon" />
+          </Box>
         </Box>
         <Box
           className="contracts--box"
@@ -95,7 +106,9 @@ const Contracts: FC = () => {
           >
             Base
           </Typography>
-          <CopyIcon className="copy-icon" />
+          <Box title="Copy">
+            <CopyIcon className="copy-icon" />
+          </Box>
         </Box>
       </Box>
     </StyledWrapper>

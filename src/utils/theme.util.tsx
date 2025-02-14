@@ -9,6 +9,7 @@ declare module "@mui/material/styles" {
     blackByMode: Palette["primary"];
     gray: Palette["primary"];
     darkPurple: Palette["primary"];
+    darkGray: Palette["primary"];
   }
   interface PaletteOptions {
     white: PaletteOptions["primary"];
@@ -17,6 +18,7 @@ declare module "@mui/material/styles" {
     blackByMode: PaletteOptions["primary"];
     gray: PaletteOptions["primary"];
     darkPurple: PaletteOptions["primary"];
+    darkGray: PaletteOptions["primary"];
   }
 }
 
@@ -42,6 +44,9 @@ const generalThemeConfig: ThemeOptions = {
     },
     darkPurple: {
       main: "#06061A",
+    },
+    darkGray: {
+      main: "#151E2A",
     },
   },
   typography: customVariant,

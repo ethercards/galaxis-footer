@@ -5,8 +5,9 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
     color: theme.palette.white.main,
   },
   ".snackbar-content": {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.darkGray.main,
     color: theme.palette.white.main,
+    fontFamily: theme.typography.main.fontFamily,
     ".close-icon": {
       cursor: "pointer",
       color: theme.palette.white.main,
@@ -29,6 +30,7 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
       gap: theme.spacing(1),
       alignItems: "center",
       ".chain-icon": {
+        cursor: "pointer",
         width: "16px",
         height: "16px",
       },

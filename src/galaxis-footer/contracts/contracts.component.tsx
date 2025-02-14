@@ -19,7 +19,7 @@ const Contracts: FC = () => {
         <Box className="contracts--box">
           <EthereumIcon className="chain-icon" />
           <Typography variant="main" className="contracts--typography">
-            Ethereum Mainnet
+            Ethereum
           </Typography>
           <CopyIcon
             className="copy-icon"

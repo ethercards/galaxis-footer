@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import CustomTitle from "../title/title.component";
 import StyledWrapper from "./contracts.style";
 import {
+  AbstractIcon,
   ArbitrumIcon,
   BaseIcon,
   CheckIcon,
@@ -22,6 +23,7 @@ const Contracts: FC = () => {
       "0x3c69d114664d48357d820dbdd121a8071eac99bf": `https://polygonscan.com/address/${address}`,
       "0xa5312c3e42a82d459162b2a3bd7ffc4f9099b911": `https://arbiscan.io/address/${address}`,
       "0x2d189eabb667aa1ecfc01963a6a3a5d83960f558": `https://basescan.org/address/${address}`,
+      "0xB1bd5AFA0DE1953246C81276550a464f7d545929": `https://abscan.org/address/${address}`,
     };
 
     const link = explorerLinks[address] || "";
@@ -110,6 +112,22 @@ const Contracts: FC = () => {
             title="0x2d189eabb667aa1ecfc01963a6a3a5d83960f558"
           >
             Base
+          </Typography>
+          <Box title="Copy">
+            <CopyIcon className="copy-icon" />
+          </Box>
+        </Box>
+        <Box
+          className="contracts--box"
+          onClick={() => handleCopyIconClick("0xB1bd5AFA0DE1953246C81276550a464f7d545929")}
+        >
+          <AbstractIcon className="chain-icon" />
+          <Typography
+            variant="main"
+            className="contracts--typography"
+            title="0xB1bd5AFA0DE1953246C81276550a464f7d545929"
+          >
+            Abstract
           </Typography>
           <Box title="Copy">
             <CopyIcon className="copy-icon" />

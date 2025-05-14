@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import CustomTitle from "../title/title.component";
 import StyledWrapper from "./contracts.style";
 import {
+  AbstractIcon,
   ArbitrumIcon,
   BaseIcon,
   CheckIcon,
@@ -120,7 +121,7 @@ const Contracts: FC = () => {
           className="contracts--box"
           onClick={() => handleCopyIconClick("0xB1bd5AFA0DE1953246C81276550a464f7d545929")}
         >
-          <BaseIcon className="chain-icon" />
+          <AbstractIcon className="chain-icon" />
           <Typography
             variant="main"
             className="contracts--typography"
